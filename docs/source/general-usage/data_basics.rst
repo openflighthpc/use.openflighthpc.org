@@ -10,9 +10,7 @@ Organising data on your cluster
 Shared filesystem
 ----------------- 
 
-Your Flight Compute cluster includes a shared home filesystem which is mounted across the login and all compute nodes. Files copied to this area are available via the same absolute path on all cluster nodes. The size of this area is controlled by the setting used when you created your cluster. The shared filesystem is typically used for job-scripts, input and output data for the jobs you run.
-
-Users must make sure that they copy data they want to keep off the shared filesystem before the Flight Compute cluster is terminated. This documentation provides example methods for copying data back to your local client system, or storing it in the **AWS Simple Storage Service (S3)**. 
+Your openFlight Compute cluster includes a shared home filesystem which is mounted across the login and all compute nodes. Files copied to this area are available via the same absolute path on all cluster nodes. The shared filesystem is typically used for job-scripts, input and output data for the jobs you run.
 
 Your home directory
 -------------------
@@ -32,7 +30,7 @@ The **root** user in Linux has special meaning as a privileged user, and does no
 Local scratch storage
 --------------------- 
 
-Your compute nodes have an amount of disk space available to store temporary data under the ``/tmp`` mount-point. The size of this area will depend on the type and size of instance you selected at the time your cluster was launched. This area is intended for temporary data created during compute jobs, and shouldn't be used for long-term data storage. Compute nodes are configured to clear up temporary space automatically, removing orphan data left behind by jobs. In addition, an auto-scaling cluster may automatically terminate idle nodes, resulting in the loss of any files stored in local scratch space. 
+Your compute nodes have an amount of disk space available to store temporary data under the ``/tmp`` mount-point. This area is intended for temporary data created during compute jobs, and shouldn't be used for long-term data storage. Compute nodes are configured to clear up temporary space automatically, removing orphan data left behind by jobs. 
 
 Users must make sure that they copy data they want to keep back to the shared filesystem after compute jobs have been completed. 
 
@@ -44,13 +42,13 @@ Flight Compute cluster login and compute nodes all mount the shared filesystem, 
 
 If necessary, users can use the ``scp`` command to copy files from the compute nodes to the login node; for example:
 
- - ``scp ip-10-75-0-235:/tmp/myfile.txt .``
+ - ``scp node01:/tmp/myfile.txt .``
  
-Alternatively, users could login to the compute node (e.g. ``ssh ip-10-75-0-235``) and copy the data back to the shared filesystem on the node:
+Alternatively, users could login to the compute node (e.g. ``ssh node01``) and copy the data back to the shared filesystem on the node:
 
 .. code:: bash
     
-    ssh ip-10-75-0-235 
+    ssh node01 
     cp /tmp/myfile ~/myfile
 
 
@@ -145,7 +143,7 @@ Object storage is particularly useful for archiving data, as it typically provid
 .. hint:: Storage services that are compatible with standard protocols such as ``S3`` and ``SWIFT`` should be compatible with the tools provided on an Alces Flight cluster. Configure the ``service address`` or ``Authentication Endpoint`` appropriately for your chosen storage provider in order to use third-party services. 
 
 
-Using alces storage commands
+Using flight storage commands
 ----------------------------
 
 Your Flight Compute cluster includes command-line tools which can be used to enable access to existing **AWS S3**, **Swift** and **Dropbox** accounts. Object storage services which are compatible with S3 or Swift can also be configured. For example - a Ceph storage platform with a compatible **RADOS-gateway** can be accessed using S3 support. To enable access to these services, users must first enable them with the following commands:
@@ -164,12 +162,12 @@ For example; to configure access to an AWS S3 account using the access and secre
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage configure my-s3area1 s3
+    [alces@login1(scooby) ~]$ flight storage configure my-s3area1 s3
     Display name [my-s3area1]:
     Access key: PZHAA6I2OEDF9F2RQS8Q
     Secret key: ********************
     Service address [s3.amazonaws.com]:
-    alces storage configure: storage configuration complete
+    flight storage configure: storage configuration complete
 
 .. note:: If using a Ceph filesystem with a RADOS-gateway, enter the hostname of your gateway service as the ``Service address`` configuration item. For Amazon S3 based storage, choose the default service address.
 
@@ -177,18 +175,18 @@ To configure access to a Swift compatible storage service, enter your username, 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage configure my-swift swift
+    [alces@login1(scooby) ~]$ flight storage configure my-swift swift
     Display name [my-swift]:
     Username: SLOS9275161
     API key: ********************
     Authentication endpoint: https://lon02.objectstorage.softlayer.net/auth/v1.0/
-    alces storage configure: storage configuration complete
+    flight storage configure: storage configuration complete
 
 When configuring a Dropbox account, the user is provided with a URL that must be copied and pasted into a browser session on their local client machine:
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage configure mydb dropbox
+    [alces@login1(scooby) ~]$ flight storage configure mydb dropbox
     Display name [mydb]:
     Please visit the following URL in your browser and click 'Authorize':
     
@@ -203,17 +201,17 @@ Once you have set up one or more configurations, you can switch between the diff
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage use my-s3area1
-    alces storage use: storage configuration 'my-s3area1' now set as default
+    [alces@login1(scooby) ~]$ flight storage use my-s3area1
+    flight storage use: storage configuration 'my-s3area1' now set as default
     
 From the command-line, users can upload and download data from their configured storage areas. To upload data to an object storage area, use the ``alces storage put <local-file> <object-name>`` command; e.g.
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage put mydatafile datafile-may2016
-    alces storage put: mydatafile -> datafile-may2016
+    [alces@login1(scooby) ~]$ flight storage put mydatafile datafile-may2016
+    flight storage put: mydatafile -> datafile-may2016
     
-    [alces@login1(scooby) ~]$ alces storage ls
+    [alces@login1(scooby) ~]$ flight storage ls
     2012-08-23 17:08        DIR   Public
     2016-05-14 16:10       1335   datafile-may2016
     2012-08-23 17:08     246000   Getting Started.pdf
@@ -225,8 +223,8 @@ To download data from an object storage service, use the ``alces storage get <ob
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage get "Getting Started.pdf" instructions.pdf
-    alces storage get: Getting Started.pdf -> /home/alces/instructions.pdf
+    [alces@login1(scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
+    flight storage get: Getting Started.pdf -> /home/alces/instructions.pdf
 
     [alces@login1(scooby) ~]$ file instructions.pdf
     instructions.pdf: PDF document, version 1.4
@@ -238,13 +236,13 @@ Users can also create new buckets in their object-storage service using the ``al
 
 .. code:: bash
 
-    [alces@login1(scooby) data]$ alces storage mb newdata
-    alces storage mkbucket: created bucket newdata
+    [alces@login1(scooby) data]$ flight storage mb newdata
+    flight storage mkbucket: created bucket newdata
 
-    [alces@login1(scooby) data]$ alces storage put datafile2 newdata/datafile2
-    alces storage put: datafile2 -> newdata/datafile2
+    [alces@login1(scooby) data]$ flight storage put datafile2 newdata/datafile2
+    flight storage put: datafile2 -> newdata/datafile2
 
-    [alces@login1(scooby) data]$ alces storage ls newdata
+    [alces@login1(scooby) data]$ flight storage ls newdata
     2016-05-14 16:14   20971520   datafile2
 
     [alces@login1(scooby) data]$
@@ -254,12 +252,12 @@ Users can also recursively transfer entire buckets (including any buckets contai
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces storage put -r datadir datadir2
-    alces storage put: datadir/datafile2 -> datadir2/datafile2
-    alces storage put: datadir/datafile3 -> datadir2/datafile3
-    alces storage put: datadir/datafile4 -> datadir2/datafile4
-    alces storage put: datadir/datafile5 -> datadir2/datafile5
-    alces storage put: datadir/datafile6 -> datadir2/datafile6
+    [alces@login1(scooby) ~]$ flight storage put -r datadir datadir2
+    flight storage put: datadir/datafile2 -> datadir2/datafile2
+    flight storage put: datadir/datafile3 -> datadir2/datafile3
+    flight storage put: datadir/datafile4 -> datadir2/datafile4
+    flight storage put: datadir/datafile5 -> datadir2/datafile5
+    flight storage put: datadir/datafile6 -> datadir2/datafile6
 
     [alces@login1(scooby) ~]$
 
