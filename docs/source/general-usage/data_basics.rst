@@ -15,7 +15,7 @@ Your openFlight Compute cluster includes a shared home filesystem which is mount
 Your home directory
 -------------------
 
-The shared filesystem includes the home-directory area for the user you created when your cluster was launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/home/`` directory, named after your username. For example, if your user is called **centos**, then your home-directory will have the absolute path ``/home/centos/``.
+The shared filesystem includes the home-directory area for the ``centos`` user which is created when your cluster is launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/home/`` directory, named ``centos`` (``/home/centos``). 
 
 The Linux command line will accept the ``~`` (*tilde*) symbol as a substitute for the currently logged-in users' home-directory. The environment variable ``$HOME`` is also set to this value by default. Hence, the following three commands are all equivalent when logged in as the user **centos**:
 
@@ -97,9 +97,9 @@ There are also a number of graphical file-management interfaces available that s
 
 - On a Windows client, download and install `WinSCP <https://winscp.net/eng/download.php>`_
 - Start WinSCP; in the **login** configuration box, enter the IP address of your Flight Compute cluster login node in the ``Host name`` box
-- Enter the username you configured for your cluster in the ``User name`` box
+- Enter the username you configured for your cluster in the ``User name`` box (the default user is ``centos``)
 - Click on the ``Advanced`` box and navigate to the ``SSH`` sub-menu, and the ``Authentication`` item
-- In the ``Private key file`` box, select your AWS private key, and click the ``OK`` box.
+- In the ``Private key file`` box, select your cluster access private key, and click the ``OK`` box.
 
 
 .. image:: winscpconfig.jpg
@@ -148,15 +148,15 @@ Using flight storage commands
 
 Your Flight Compute cluster includes command-line tools which can be used to enable access to existing **AWS S3**, **Swift** and **Dropbox** accounts. Object storage services which are compatible with S3 or Swift can also be configured. For example - a Ceph storage platform with a compatible **RADOS-gateway** can be accessed using S3 support. To enable access to these services, users must first enable them with the following commands:
 
- - ``alces storage enable s3`` - enables **AWS S3** service
- - ``alces storage enable swift`` - enables **Swift** service
- - ``alces storage enable dropbox`` - enables **Dropbox** service
+ - ``flight storage enable s3`` - enables **AWS S3** service
+ - ``flight storage enable swift`` - enables **Swift** service
+ - ``flight storage enable dropbox`` - enables **Dropbox** service
 
-.. note:: The enabled & available storage types can be viewed with ``alces storage show`` & ``alces storage avail`` respectively.
+.. note:: The enabled & available storage types can be viewed with ``flight storage show`` & ``flight storage avail`` respectively.
  
 Once enabled, a user can configure one or more storage services for use on the command-line, giving each one a friendly name to identify it. The syntax of the command is shown below:
 
-  ``alces storage configure <friendly-name> <type-of-storage>``
+  ``flight storage configure <friendly-name> <type-of-storage>``
 
 For example; to configure access to an AWS S3 account using the access and secret key, the following commands can be used:
 
@@ -204,7 +204,7 @@ Once you have set up one or more configurations, you can switch between the diff
     [centos@gateway1(scooby) ~]$ flight storage use my-s3area1
     flight storage use: storage configuration 'my-s3area1' now set as default
     
-From the command-line, users can upload and download data from their configured storage areas. To upload data to an object storage area, use the ``alces storage put <local-file> <object-name>`` command; e.g.
+From the command-line, users can upload and download data from their configured storage areas. To upload data to an object storage area, use the ``flight storage put <local-file> <object-name>`` command; e.g.
 
 .. code:: bash
 
@@ -219,12 +219,12 @@ From the command-line, users can upload and download data from their configured 
     [centos@gateway1(scooby) ~]$
 
 
-To download data from an object storage service, use the ``alces storage get <object-name> <local-file>`` command; e.g.
+To download data from an object storage service, use the ``flight storage get <object-name> <local-file>`` command; e.g.
 
 .. code:: bash
 
     [centos@gateway1(scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
-    flight storage get: Getting Started.pdf -> /home/alces/instructions.pdf
+    flight storage get: Getting Started.pdf -> /home/centos/instructions.pdf
 
     [centos@gateway1(scooby) ~]$ file instructions.pdf
     instructions.pdf: PDF document, version 1.4
@@ -232,7 +232,7 @@ To download data from an object storage service, use the ``alces storage get <ob
     [centos@gateway1(scooby) ~]$
 
 
-Users can also create new buckets in their object-storage service using the ``alces storage mb <bucket-name>`` command, and then put objects into the new bucket; e.g.
+Users can also create new buckets in their object-storage service using the ``flight storage mb <bucket-name>`` command, and then put objects into the new bucket; e.g.
 
 .. code:: bash
 
@@ -248,7 +248,7 @@ Users can also create new buckets in their object-storage service using the ``al
     [centos@gateway1(scooby) data]$
 
 
-Users can also recursively transfer entire buckets (including any buckets contained within) using the ``-r`` option to the ``alces storage`` command; e.g.
+Users can also recursively transfer entire buckets (including any buckets contained within) using the ``-r`` option to the ``flight storage`` command; e.g.
 
 .. code:: bash
 
@@ -261,7 +261,7 @@ Users can also recursively transfer entire buckets (including any buckets contai
 
     [centos@gateway1(scooby) ~]$
 
-.. note:: As well as being able to recursively ``put`` entire directories from a local path into the remote storage target, users can also ``get`` and ``rm`` directories recursively, again using the ``-r`` or ``-R`` option with their ``alces storage`` command.
+.. note:: As well as being able to recursively ``put`` entire directories from a local path into the remote storage target, users can also ``get`` and ``rm`` directories recursively, again using the ``-r`` or ``-R`` option with their ``flight storage`` command.
 
 Saving data before terminating your cluster
 -------------------------------------------
