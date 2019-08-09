@@ -79,7 +79,7 @@ The ``xrandr`` command will display a list of available resolutions supported by
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ xrandr
+    [centos@gateway1(scooby) ~]$ xrandr
     Screen 0: minimum 32 x 32, current 1024 x 768, maximum 32768 x 32768
     VNC-0 connected primary 1024x768+0+0 0mm x 0mm
        1920x1200     60.00
@@ -110,7 +110,7 @@ Your Alces Flight Compute cluster can also support other types of graphical sess
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces session avail
+    [centos@gateway1(scooby) ~]$ alces session avail
     [ ] base/chrome
     [ ] base/cinnamon
     [*] base/default
@@ -132,15 +132,15 @@ Users can view a list of the currently running sessions by using the command ``a
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces session list
+    [centos@gateway1(scooby) ~]$ alces session list
     +----------+------------+----------------------+-----------------+---------+------+----------+
     | Identity | Type       | Host name            | Host address    | Display | Port | Password |
     +----------+------------+----------------------+-----------------+---------+------+----------+
-    | b7d8e878 | gnome      | login1               | 52.49.121.188   |      :1 | 5901 | JqQJWkA5 |
-    | ce4c4372 | cinnamon   | login1               | 52.49.121.188   |      :2 | 5902 | V9r2IuXb |
-    | d1d8342e | gnome      | login1               | 52.49.121.188   |      :3 | 5903 | 1HJRftxP |
-    | d4c69a18 | terminal   | login1               | 52.49.121.188   |      :4 | 5904 | 0du74LNn |
-    | d6d5f7cc | chrome     | login1               | 52.49.121.188   |      :5 | 5905 | YbR8vkFy |
+    | b7d8e878 | gnome      | gateway1               | 52.49.121.188   |      :1 | 5901 | JqQJWkA5 |
+    | ce4c4372 | cinnamon   | gateway1               | 52.49.121.188   |      :2 | 5902 | V9r2IuXb |
+    | d1d8342e | gnome      | gateway1               | 52.49.121.188   |      :3 | 5903 | 1HJRftxP |
+    | d4c69a18 | terminal   | gateway1               | 52.49.121.188   |      :4 | 5904 | 0du74LNn |
+    | d6d5f7cc | chrome     | gateway1               | 52.49.121.188   |      :5 | 5905 | YbR8vkFy |
     +----------+------------+----------------------+-----------------+---------+------+----------+
 
 
@@ -148,10 +148,10 @@ To display connection information for an existing session, use the command ``alc
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces session info b7d8e878
+    [centos@gateway1(scooby) ~]$ alces session info b7d8e878
     Identity:     b7d8e878-19b7-11e6-96cc-0a949a3e07d9
     Type:         gnome
-    Host name:    login1
+    Host name:    gateway1
     Host address: 52.49.121.188
     Port:         5901
     Display:      1

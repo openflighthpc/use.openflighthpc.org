@@ -12,7 +12,7 @@ Many different versions of Perl are available through the Alces Gridware utility
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces gridware search --name perl
+    [centos@gateway1(scooby) ~]$ alces gridware search --name perl
     base/apps/perl/5.10.1          base/apps/perl/5.12.4
     base/apps/perl/5.14.2          base/apps/perl/5.16.1
     base/apps/perl/5.16.3          base/apps/perl/5.18.0
@@ -25,7 +25,7 @@ To install, for example - Perl version 5.20.2; run the following command:
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces gridware install apps/perl/5.20.2
+    [centos@gateway1(scooby) ~]$ alces gridware install apps/perl/5.20.2
     Preparing to install main/apps/perl/5.20.2
     Installing main/apps/perl/5.20.2
     Importing apps-perl-5.20.2-el7.tar.gz
@@ -53,31 +53,31 @@ Once the compilation has finished - the Perl 5.20.2 Gridware package will be ava
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module avail
+    [centos@gateway1(scooby) ~]$ module avail
     ---  /opt/gridware/local/el7/etc/modules  ---
       apps/perl/5.20.2/gcc-4.8.5
-    [alces@login1(scooby) ~]$ module load apps/perl
+    [centos@gateway1(scooby) ~]$ module load apps/perl
     apps/perl/5.20.2/gcc-4.8.5
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
-    [alces@login1(scooby) ~]$ perl --version
+    [centos@gateway1(scooby) ~]$ perl --version
     This is perl 5, version 16, subversion 3 (v5.16.3) built for x86_64-linux-thread-multi 
     
 Multiple versions of a package can exist at one time, however only one version of a particular application module can be loaded at any one time. To load a different version of Perl: 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
     apps/perl/5.18.0/gcc-4.8.5 ... VARIANT (have alternative: apps/perl/5.20.2/gcc-4.8.5)
-    [alces@login1(scooby) ~]$ alces module unload apps/perl/5.20.2/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ alces module unload apps/perl/5.20.2/gcc-4.8.5
                   apps/perl/5.20.2/gcc-4.8.5 ... UNLOADING --> OK
-    [alces@login1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
     apps/perl/5.18.0/gcc-4.8.5
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
-    [alces@login1(scooby) ~]$ perl --version
+    [centos@gateway1(scooby) ~]$ perl --version
     This is perl 5, version 18, subversion 0 (v5.18.0) built for x86_64-linux
 
 Installation of language libraries
@@ -94,7 +94,7 @@ Next, load the version of Perl you wish to add language libraries to - for examp
 
 .. code:: bash
 
-    [root@login1(scooby) ~]# module load apps/perl/5.20.2
+    [root@gateway1(scooby) ~]# module load apps/perl/5.20.2
     apps/perl/5.20.2/gcc-4.8.5
      | -- libs/gcc/system
      |    * --> OK
@@ -105,7 +105,7 @@ Next - use the ``cpan`` utility to install the Perl libraries you, or additional
 
 .. code:: bash
 
-    [root@login1(scooby) ~]# cpan Date::Simple
+    [root@gateway1(scooby) ~]# cpan Date::Simple
     Fetching with Net::FTP:
     ftp://cpan.etla.org/pub/CPAN/authors/01mailrc.txt.gz
     Reading '/opt/gridware/share/perl/5.20.2/cpan/sources/authors/01mailrc.txt.gz'
@@ -117,13 +117,13 @@ To verify successful installation, switch to a non-root user; for example ``alce
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module load apps/perl/5.20.2
+    [centos@gateway1(scooby) ~]$ module load apps/perl/5.20.2
     apps/perl/5.20.2/gcc-4.8.5
      | -- libs/gcc/system
      |    * --> OK
      |
      OK
-    [alces@login1(scooby) ~]$ cpan -l 2>&1 | grep Date::Simple | head -n1
+    [centos@gateway1(scooby) ~]$ cpan -l 2>&1 | grep Date::Simple | head -n1
     Date::Simple	3.03
 
 
@@ -136,12 +136,12 @@ As the user you wish to install a Perl module for, load the ``perl`` Gridware ap
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ cpan File::Slurp
+    [centos@gateway1(scooby) ~]$ cpan File::Slurp
     Fetching with Net::FTP:
     ftp://cpan.etla.org/pub/CPAN/authors/01mailrc.txt.gz
     Reading '/home/barney/gridware/share/perl/5.20.2/cpan/sources/authors/01mailrc.txt.gz'
     <-- snip -->
-    [alces@login1(scooby) ~]$ cpan File::Slurp
+    [centos@gateway1(scooby) ~]$ cpan File::Slurp
     Reading '/home/barney/gridware/share/perl/5.20.2/cpan/Metadata'
       Database was generated on Fri, 19 Feb 2016 02:41:02 GMT
     File::Slurp is up to date (9999.19).
@@ -150,8 +150,8 @@ The ``File::Slurp`` installation was successful - and we can now use it as the `
 
 .. code:: bash
 
-    [root@login1(scooby) ~]# alces module load apps/perl/5.20.2
-    [root@login1(scooby) ~]# cpan File::Slurp
+    [root@gateway1(scooby) ~]# alces module load apps/perl/5.20.2
+    [root@gateway1(scooby) ~]# cpan File::Slurp
     Fetching with Net::FTP:
     ftp://cpan.etla.org/pub/CPAN/authors/01mailrc.txt.gz
     Reading '/home/alces/gridware/share/perl/5.20.2/cpan/sources/authors/01mailrc.txt.gz'

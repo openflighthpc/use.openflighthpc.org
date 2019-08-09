@@ -14,9 +14,9 @@ You can start a new interactive job on your Flight Compute cluster by using the 
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ srun --pty /bin/bash
-  [alces@ip-10-75-1-50(scooby) ~]$
-  [alces@ip-10-75-1-50(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ srun --pty /bin/bash
+  [centos@ip-10-75-1-50(scooby) ~]$
+  [centos@ip-10-75-1-50(scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  3       all     bash    alces  R       0:39      1 ip-10-75-1-50
 
@@ -27,7 +27,7 @@ Alternatively, the ``srun`` command can also be executed from an interactive des
 .. image:: interactivejob.jpg
      :alt: Running an interactive graphical job
 
-.. note:: The Slurm scheduler does not automatically set up your session to allow you to run graphical applications inside an interactive session. Once your interactive session has started, you must run the following command before running a graphical application: ``export DISPLAY=login1$DISPLAY``
+.. note:: The Slurm scheduler does not automatically set up your session to allow you to run graphical applications inside an interactive session. Once your interactive session has started, you must run the following command before running a graphical application: ``export DISPLAY=gateway1$DISPLAY``
 
 When you've finished running your application in your interactive session, simply type ``logout``, or press **Ctrl+D** to exit the interactive job.
 
@@ -35,7 +35,7 @@ If the job-scheduler could not satisfy the resource you've requested for your in
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ srun --pty /bin/bash
+  [centos@gateway1(scooby) ~]$ srun --pty /bin/bash
   srun: job 20 queued and waiting for resources
 
 Submitting a batch job
@@ -58,20 +58,20 @@ We can execute that script directly on the login node by using the command ``bas
 
 .. code:: bash
 
-  Started running on host login1
-  Finished running - goodbye from login1
+  Started running on host gateway1
+  Finished running - goodbye from gateway1
 
 To submit your job script to the cluster job scheduler, use the command ``sbatch simplejobscript.sh``. The job scheduler should immediately report the job-ID for your job; your job-ID is unique for your current Alces Flight Compute cluster - it will never be repeated once used.
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 21
   
-  [alces@login1(scooby) ~]$ ls
+  [centos@gateway1(scooby) ~]$ ls
   clusterware-setup-sshkey.log  simplejobscript.sh  slurm-21.out
   
-  [alces@login1(scooby) ~]$ cat slurm-21.out
+  [centos@gateway1(scooby) ~]$ cat slurm-21.out
   Starting running on host ip-10-75-1-50
   Finished running - goodbye from ip-10-75-1-50
 
@@ -82,7 +82,7 @@ Once your job has been submitted, use the ``squeue`` command to view the status 
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
            JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
               41       all simplejo    alces  R       0:03      1 ip-10-75-1-50
               42       all simplejo    alces  R       0:00      1 ip-10-75-1-50
@@ -91,7 +91,7 @@ You can keep running the ``squeue`` command until your job finishes running and 
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ more slurm-42.out
+  [centos@gateway1(scooby) ~]$ more slurm-42.out
   Starting running on host ip-10-75-1-50
   Finished running - goodbye from ip-10-75-1-50
 
@@ -99,13 +99,13 @@ Your job runs on whatever node the scheduler can find which is available for use
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 46
-  [alces@login1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 47
-  [alces@login1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 48
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   43       all simplejo    alces  R       0:04      1 ip-10-75-1-50
                   44       all simplejo    alces  R       0:04      1 ip-10-75-1-50
@@ -114,8 +114,8 @@ Your job runs on whatever node the scheduler can find which is available for use
                   47       all simplejo    alces  R       0:04      1 ip-10-75-1-163
                   48       all simplejo    alces  R       0:04      1 ip-10-75-1-163
  
-  [alces@login1(scooby) ~]$ scancel 47
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ scancel 47
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   43       all simplejo    alces  R       0:11      1 ip-10-75-1-50
                   44       all simplejo    alces  R       0:11      1 ip-10-75-1-50
@@ -130,7 +130,7 @@ Users can use the ``sinfo -Nl`` command to view the status of compute node hosts
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sinfo -Nl
+  [centos@gateway1(scooby) ~]$ sinfo -Nl
   Fri Aug 26 14:46:34 2016
   NODELIST        NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
   ip-10-75-1-50       1      all*        idle    2    2:1:1   3602    20462      1   (null) none
@@ -167,7 +167,7 @@ You can view all default resource limits by running the following command:
 
 .. code:: bash
 
-  [root@login1(slurm) ~]# scontrol show config | grep Def
+  [root@gateway1(slurm) ~]# scontrol show config | grep Def
   CpuFreqDef              = Unknown
   DefMemPerNode           = UNLIMITED
   MpiDefault              = none
@@ -186,10 +186,10 @@ Job instructions can be provided in two ways; they are:
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sbatch --job-name=mytestjob simplejobscript.sh
+  [centos@gateway1(scooby) ~]$ sbatch --job-name=mytestjob simplejobscript.sh
   Submitted batch job 51
   
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   51       all mytestjo    alces  R       0:02      1 ip-10-75-1-50
 
@@ -267,14 +267,14 @@ You can instruct the scheduler to wait for an existing job to finish before star
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   75       all    myjob    alces  R       0:01      1 ip-10-75-1-50
  
-  [alces@login1(scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
+  [centos@gateway1(scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
   Submitted batch job 76
  
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   76       all    myjob    alces PD       0:00      1 (Dependency)
                   75       all    myjob    alces  R       0:15      1 ip-10-75-1-50
@@ -297,9 +297,9 @@ A convenient way to run such jobs on a cluster is to use a task array, using the
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sbatch arrayjob.sh
+  [centos@gateway1(scooby) ~]$ sbatch arrayjob.sh
   Submitted batch job 77
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
       77_[85-1000]       all    array    alces PD       0:00      1 (Resources)
              77_71       all    array    alces  R       0:00      1 ip-10-75-1-163
@@ -376,12 +376,12 @@ We can then submit the IMB job script to the scheduler, which will automatically
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ sbatch imb.sh
+  [centos@gateway1(scooby) ~]$ sbatch imb.sh
   Submitted batch job 1162
-  [alces@login1(scooby) ~]$ squeue
+  [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                              1162       all      imb    alces  R       0:01      8 ip-10-75-1-[42,45,62,67,105,178,233,250]
-  [alces@login1(scooby) ~]$ cat imb.out.1162
+  [centos@gateway1(scooby) ~]$ cat imb.out.1162
   #------------------------------------------------------------
   #    Intel (R) MPI Benchmarks 4.0, MPI-1 part
   #------------------------------------------------------------
@@ -453,7 +453,7 @@ You can then see any time limits assigned to running jobs using the command ``sq
 
 .. code:: bash
 
-  [alces@login1(scooby) ~]$ squeue --long
+  [centos@gateway1(scooby) ~]$ squeue --long
   Tue Aug 30 10:55:55 2016
                JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
                 1163       all    sleep    alces  RUNNING       0:07   2:00:00      1 ip-10-75-1-42

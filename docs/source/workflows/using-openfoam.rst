@@ -29,7 +29,7 @@ The following tutorial makes use of the OpenFOAM graphical interface. To use the
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces session start gnome
+    [centos@gateway1(scooby) ~]$ alces session start gnome
     VNC server started:
         Identity: 36a814b0-dc84-11e5-bcf2-fa163e8729ee
             Type: gnome
@@ -63,8 +63,8 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ cd $FOAM_TUTORIALS
-    [alces@login1(scooby) tutorials]$ ls
+    [centos@gateway1(scooby) ~]$ cd $FOAM_TUTORIALS
+    [centos@gateway1(scooby) tutorials]$ ls
     Allclean  basic         discreteMethods   financial       lagrangian  resources
     Allrun    combustion    DNS               heatTransfer    mesh        stressAnalysis
     Alltest   compressible  electromagnetics  incompressible  multiphase
@@ -79,13 +79,13 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
 
 .. code:: bash
 
-    [alces@login1(scooby) cavity]$ cd ~/cavity
-    [alces@login1(scooby) cavity]$ blockMesh
+    [centos@gateway1(scooby) cavity]$ cd ~/cavity
+    [centos@gateway1(scooby) cavity]$ blockMesh
     Build  : 2.2.1-57f3c3617a2d
     Exec   : blockMesh
     Date   : Feb 26 2016
     Time   : 14:59:24
-    Host   : "login1"
+    Host   : "gateway1"
     PID    : 12720
     Case   : /home/alces/cavity
     nProcs : 1
@@ -143,7 +143,7 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
 
 .. code:: bash
 
-    [alces@login1(scooby) cavity]$ icoFoam
+    [centos@gateway1(scooby) cavity]$ icoFoam
     /*---------------------------------------------------------------------------*\
     | =========                 |                                                 |
     | \\      /  F ield         | OpenFOAM: The Open Source CFD Toolbox           |
@@ -155,7 +155,7 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
     Exec   : icoFoam
     Date   : Jan 04 2017
     Time   : 14:04:02
-    Host   : "login1"
+    Host   : "gateway1"
     PID    : 24607
     Case   : /home/alces/cavity
     nProcs : 1
@@ -171,14 +171,14 @@ Alternatively - the process can be automated through your cluster job scheduler.
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module load apps/openfoam
+    [centos@gateway1(scooby) ~]$ module load apps/openfoam
 
 9.  From the ``cavity`` directory in your home folder, run the viewer - this will open up the paraFoam viewer interface:
 
 .. code:: bash 
 
-    [alces@login1(scooby) ~]$ cd ~/cavity
-    [alces@login1(scooby) cavity]$ paraFoam
+    [centos@gateway1(scooby) ~]$ cd ~/cavity
+    [centos@gateway1(scooby) cavity]$ paraFoam
 
 10.  Using the ``Mesh Regions`` box on the bottom left of the interface - enable all of the Mesh regions. Once all of the Mesh regions are selected, click the ``Apply`` button. 
 11.  Click and drag on the blue image of the simulation to rotate the display. 

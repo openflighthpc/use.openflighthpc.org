@@ -12,14 +12,14 @@ Many different versions of R are available through the Alces Gridware utility - 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces gridware list R
+    [centos@gateway1(scooby) ~]$ alces gridware list R
     main/apps/R/3.2.3  main/apps/R/3.2.5  main/apps/R/3.3.0  main/apps/R/3.3.1
 
 To install, for example - R version 3.3.1; run the following command: 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces gridware install apps/R/3.3.1
+    [centos@gateway1(scooby) ~]$ alces gridware install apps/R/3.3.1
     Preparing to install main/apps/R/3.3.1
     Installing main/apps/R/3.3.1
     Importing apps-R-3.3.1-el7.tar.gz
@@ -46,7 +46,7 @@ Once the compilation has finished - the R 3.3.1 Gridware package will be availab
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module avail
+    [centos@gateway1(scooby) ~]$ module avail
     ---  /opt/gridware/local/el7/etc/modules  ---
       apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
       apps/samtools/0.1.19/gcc-4.8.5
@@ -58,14 +58,14 @@ Once the compilation has finished - the R 3.3.1 Gridware package will be availab
       services/gridscheduler
       services/pdsh
 
-    [alces@login1(scooby) ~]$ module load apps/R
+    [centos@gateway1(scooby) ~]$ module load apps/R
     apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system
      |    * --> OK
      |
      OK
 
-    [alces@login1(scooby) ~]$ R --version
+    [centos@gateway1(scooby) ~]$ R --version
     R version 3.3.1 (2016-06-21) -- "Bug in Your Hair"
     Copyright (C) 2016 The R Foundation for Statistical Computing
     Platform: x86_64-pc-linux-gnu (64-bit)
@@ -75,20 +75,20 @@ Multiple versions of a package can exist at one time, however only one version o
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ alces module load apps/R/3.3.1
+    [centos@gateway1(scooby) ~]$ alces module load apps/R/3.3.1
     apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
-    [alces@login1(scooby) ~]$ alces module unload apps/R
+    [centos@gateway1(scooby) ~]$ alces module unload apps/R
     apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0 ...
                                                  UNLOADING --> OK
-    [alces@login1(scooby) ~]$ alces module load apps/R/3.2.3
+    [centos@gateway1(scooby) ~]$ alces module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
-    [alces@login1(scooby) ~]$ R --version
+    [centos@gateway1(scooby) ~]$ R --version
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing
     Platform: x86_64-pc-linux-gnu (64-bit)
@@ -108,8 +108,8 @@ To add R packages, first load the version of R you wish to install packages to -
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ sudo -s
-    [root@login1(scooby) alces]# module load apps/R/3.2.3
+    [centos@gateway1(scooby) ~]$ sudo -s
+    [root@gateway1(scooby) alces]# module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-20110419
      | -- libs/gcc/system
      |    * --> OK
@@ -120,7 +120,7 @@ Next, load the ``R`` application - and use the ``install.packages`` command to i
 
 .. code:: bash
 
-    [root@login1(scooby) alces]# R
+    [root@gateway1(scooby) alces]# R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing
@@ -149,13 +149,13 @@ Once the installation is complete and you have verified the package works as int
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module load apps/R/3.2.3
+    [centos@gateway1(scooby) ~]$ module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
     
-    [alces@login1(scooby) ~]$ R
+    [centos@gateway1(scooby) ~]$ R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing
@@ -179,13 +179,13 @@ After the R application is loaded, use the ``install.packages("packagename")`` f
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ module load apps/R/3.2.3
+    [centos@gateway1(scooby) ~]$ module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
     
-    [alces@login1(scooby) ~]$ R
+    [centos@gateway1(scooby) ~]$ R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing
@@ -207,9 +207,9 @@ The ``snow`` package installation was successful - and we can now use it as the 
 
 .. code:: bash
 
-    [alces@login1(scooby) ~]$ sudo -s
-    [root@login1(scooby) alces]# module load apps/R/3.2.3
-    [root@login1(scooby) alces]# R
+    [centos@gateway1(scooby) ~]$ sudo -s
+    [root@gateway1(scooby) alces]# module load apps/R/3.2.3
+    [root@gateway1(scooby) alces]# R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing

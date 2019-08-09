@@ -36,7 +36,7 @@ Users can find the names of their compute nodes by using the ``nodeattr`` comman
   - ``nodeattr -c nodes`` - shows a comma-separated list of current compute node hostnames
   - ``nodeattr -n nodes`` - shows a new-line-separated list of current compute node hostnames
 
-The login node hostname for Flight Compute clusters launched using default templates is always ``login1``. 
+The login node hostname for Flight Compute clusters launched using default templates is always ``gateway1``. 
 
 Moving between login and compute nodes
 --------------------------------------
