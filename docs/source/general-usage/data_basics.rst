@@ -144,7 +144,7 @@ Object storage is particularly useful for archiving data, as it typically provid
 
 
 Using flight storage commands
-----------------------------
+-----------------------------
 
 Your Flight Compute cluster includes command-line tools which can be used to enable access to existing **AWS S3**, **Swift** and **Dropbox** accounts. Object storage services which are compatible with S3 or Swift can also be configured. For example - a Ceph storage platform with a compatible **RADOS-gateway** can be accessed using S3 support. To enable access to these services, users must first enable them with the following commands:
 
