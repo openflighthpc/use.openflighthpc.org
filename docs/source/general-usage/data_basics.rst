@@ -15,11 +15,11 @@ Your openFlight Compute cluster includes a shared home filesystem which is mount
 Your home directory
 -------------------
 
-The shared filesystem includes the home-directory area for the user you created when your cluster was launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/home/`` directory, named after your username. For example, if your user is called **jane**, then your home-directory will have the absolute path ``/home/jane/``.
+The shared filesystem includes the home-directory area for the user you created when your cluster was launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/home/`` directory, named after your username. For example, if your user is called **centos**, then your home-directory will have the absolute path ``/home/centos/``.
 
-The Linux command line will accept the ``~`` (*tilde*) symbol as a substitute for the currently logged-in users' home-directory. The environment variable ``$HOME`` is also set to this value by default. Hence, the following three commands are all equivalent when logged in as the user **jane**:
+The Linux command line will accept the ``~`` (*tilde*) symbol as a substitute for the currently logged-in users' home-directory. The environment variable ``$HOME`` is also set to this value by default. Hence, the following three commands are all equivalent when logged in as the user **centos**:
 
- - ``ls /home/jane``
+ - ``ls /home/centos``
  - ``ls ~``
  - ``ls $HOME``
  
@@ -68,16 +68,16 @@ The cluster login node is accessible via SSH, allowing use of the ``scp`` and ``
 
 Linux and Mac users can use in-built SSH support to copy files. To copy file **mydata.zip** to your cluster on IP address 52.48.62.34, use the command:
 
-  ``scp -i mykeyfile.pem mydata.zip jane@52.48.62.34:.``
+  ``scp -i mykeyfile.pem mydata.zip centos@52.48.62.34:.``
     
 - replace ``mykeyfile.pem`` with the name of your SSH public key
-- replace ``jane`` with your username on the cluster
+- replace ``centos`` with your username on the cluster
 
 **Windows**
 
 Windows users can download and install the `pscp <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_ command to perform the same operation (for this you will need your .pem key in .ppk format, see :ref:`connecting from Windows with Putty<windows-putty-access>`):
 
-  ``pscp -i mykeyfile.ppk mydata.zip jane@52.48.62.34:/home/jane/.``
+  ``pscp -i mykeyfile.ppk mydata.zip centos@52.48.62.34:/home/centos/.``
     
 **SCP/PSCP**
 
@@ -87,7 +87,7 @@ To retrieve files from the cluster, simply specify the location of the remote fi
 
 To copy file **myresults.zip** from your cluster on IP address 52.48.62.34 to your local Linux or Mac client:
 
-  ``scp -i mykeyfile.pem jane@52.48.62.34:/home/jane/myresults.zip .``
+  ``scp -i mykeyfile.pem centos@52.48.62.34:/home/centos/myresults.zip .``
 
 
 Using a graphical client to copy data
