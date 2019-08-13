@@ -25,6 +25,13 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Overview
+   :name: overview
+
+   overview/whatisit
+
+.. toctree::
+   :maxdepth: 1
    :caption: General Usage
    :name: general-usage
 

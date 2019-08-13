@@ -75,7 +75,7 @@ Linux and Mac users can use in-built SSH support to copy files. To copy file **m
 
 **Windows**
 
-Windows users can download and install the `pscp <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_ command to perform the same operation (for this you will need your .pem key in .ppk format, see :ref:`connecting from Windows with Putty<windows-putty-access>`):
+Windows users can download and install the `pscp <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_ command to perform the same operation (for this you will need your .pem key in .ppk format, see :ref:`connecting from Windows with Putty <windows-putty-access>`):
 
   ``pscp -i mykeyfile.ppk mydata.zip centos@52.48.62.34:/home/centos/.``
     
@@ -102,7 +102,7 @@ There are also a number of graphical file-management interfaces available that s
 - In the ``Private key file`` box, select your cluster access private key, and click the ``OK`` box.
 
 
-.. image:: winscpconfig.jpg
+.. image:: winscpconfig.png
    :alt: Configuring WinSCP
 
 
@@ -114,7 +114,7 @@ There are also a number of graphical file-management interfaces available that s
 - To copy files from the cluster to your client, click and drag them from the right-hand window and drop them on the left-hand window
 
 
-.. image:: winscpcopyfiles.jpg
+.. image:: winscpcopyfiles.png
     :alt: Copying files with WinSCP
 
 

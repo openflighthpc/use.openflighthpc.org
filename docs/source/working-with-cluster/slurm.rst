@@ -15,19 +15,21 @@ You can start a new interactive job on your Flight Compute cluster by using the 
 .. code:: bash
 
   [centos@gateway1(scooby) ~]$ srun --pty /bin/bash
-  [centos@ip-10-75-1-50(scooby) ~]$
-  [centos@ip-10-75-1-50(scooby) ~]$ squeue
+  [centos@node01(scooby) ~]$
+  [centos@node01(scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                 3       all     bash    alces  R       0:39      1 ip-10-75-1-50
+                 3       all     bash    centos R       0:39      1 node01
 
 In the above example, the ``srun`` command is used together with two options: ``--pty`` and ``/bin/bash``. The ``--pty`` option executes the task in pseudo terminal mode, allowing the session to act like a standard terminal session. The ``/bin/bash`` option is the command that you wish to run - here the default Linux shell, BASH. 
 
 Alternatively, the ``srun`` command can also be executed from an interactive desktop session; the job-scheduler will automatically find an available compute node to launch the job on. Applications launched from within the ``srun`` session are executed on the assigned cluster compute node.
 
-.. image:: interactivejob.jpg
+.. image:: interactivejob.png
      :alt: Running an interactive graphical job
 
 .. note:: The Slurm scheduler does not automatically set up your session to allow you to run graphical applications inside an interactive session. Once your interactive session has started, you must run the following command before running a graphical application: ``export DISPLAY=gateway1$DISPLAY``
+
+.. warning:: Running X applications from a compute node may not work due to missing X libraries on the compute node, these can be installed from an SSH session into a compute node with ``sudo yum groupinstall "X Window System"``
 
 When you've finished running your application in your interactive session, simply type ``logout``, or press **Ctrl+D** to exit the interactive job.
 
@@ -72,8 +74,8 @@ To submit your job script to the cluster job scheduler, use the command ``sbatch
   clusterware-setup-sshkey.log  simplejobscript.sh  slurm-21.out
   
   [centos@gateway1(scooby) ~]$ cat slurm-21.out
-  Starting running on host ip-10-75-1-50
-  Finished running - goodbye from ip-10-75-1-50
+  Starting running on host node01
+  Finished running - goodbye from node01
 
 Viewing and controlling queued jobs
 -----------------------------------
@@ -84,16 +86,16 @@ Once your job has been submitted, use the ``squeue`` command to view the status 
 
   [centos@gateway1(scooby) ~]$ squeue
            JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-              41       all simplejo    alces  R       0:03      1 ip-10-75-1-50
-              42       all simplejo    alces  R       0:00      1 ip-10-75-1-50
+              41       all simplejo    alces  R       0:03      1 node01
+              42       all simplejo    alces  R       0:00      1 node01
 
 You can keep running the ``squeue`` command until your job finishes running and disappears from the queue. The output of your batch job will be stored in a file for you to look at. The default location to store the output file is your home directory.  You can use the Linux ``more`` command to view your output file:
 
 .. code:: bash
 
   [centos@gateway1(scooby) ~]$ more slurm-42.out
-  Starting running on host ip-10-75-1-50
-  Finished running - goodbye from ip-10-75-1-50
+  Starting running on host node01
+  Finished running - goodbye from node01
 
 Your job runs on whatever node the scheduler can find which is available for use - you can try submitting a bunch of jobs at the same time, and using the ``squeue`` command to see where they run. The scheduler is likely to spread them around over different nodes (if you have multiple nodes). The login node is not included in your cluster for scheduling purposes - jobs submitted to the scheduler will only be run on your cluster compute nodes. You can use the ``scancel <job-ID>`` command to delete a job you've submitted, whether it's running or still in the queued state.
 
@@ -107,21 +109,21 @@ Your job runs on whatever node the scheduler can find which is available for use
   Submitted batch job 48
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  43       all simplejo    alces  R       0:04      1 ip-10-75-1-50
-                  44       all simplejo    alces  R       0:04      1 ip-10-75-1-50
-                  45       all simplejo    alces  R       0:04      1 ip-10-75-1-152
-                  46       all simplejo    alces  R       0:04      1 ip-10-75-1-152
-                  47       all simplejo    alces  R       0:04      1 ip-10-75-1-163
-                  48       all simplejo    alces  R       0:04      1 ip-10-75-1-163
+                  43       all simplejo    alces  R       0:04      1 node01
+                  44       all simplejo    alces  R       0:04      1 node01
+                  45       all simplejo    alces  R       0:04      1 node02
+                  46       all simplejo    alces  R       0:04      1 node02
+                  47       all simplejo    alces  R       0:04      1 node03
+                  48       all simplejo    alces  R       0:04      1 node03
  
   [centos@gateway1(scooby) ~]$ scancel 47
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  43       all simplejo    alces  R       0:11      1 ip-10-75-1-50
-                  44       all simplejo    alces  R       0:11      1 ip-10-75-1-50
-                  45       all simplejo    alces  R       0:11      1 ip-10-75-1-152
-                  46       all simplejo    alces  R       0:11      1 ip-10-75-1-152
-                  48       all simplejo    alces  R       0:11      1 ip-10-75-1-163
+                  43       all simplejo    alces  R       0:11      1 node01
+                  44       all simplejo    alces  R       0:11      1 node01
+                  45       all simplejo    alces  R       0:11      1 node02
+                  46       all simplejo    alces  R       0:11      1 node02
+                  48       all simplejo    alces  R       0:11      1 node03
 
 Viewing compute host status
 ---------------------------
@@ -133,13 +135,13 @@ Users can use the ``sinfo -Nl`` command to view the status of compute node hosts
   [centos@gateway1(scooby) ~]$ sinfo -Nl
   Fri Aug 26 14:46:34 2016
   NODELIST        NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
-  ip-10-75-1-50       1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-152      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-163      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-203      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-208      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-240      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
-  ip-10-75-1-246      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node01       1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node02      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node03      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node04      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node05      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node06      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
+  node07      1      all*        idle    2    2:1:1   3602    20462      1   (null) none
 
 The ``sinfo`` output will show (from left-to-right):
 
@@ -191,7 +193,7 @@ Job instructions can be provided in two ways; they are:
   
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  51       all mytestjo    alces  R       0:02      1 ip-10-75-1-50
+                  51       all mytestjo    alces  R       0:02      1 node01
 
 2. **In your job script**, by including scheduler directives at the top of your job script - you can achieve the same effect as providing options with the ``sbatch`` or ``srun`` commands. Create an example job script or modify your existing script to include a scheduler directive to use a specified job name:
 
@@ -269,7 +271,7 @@ You can instruct the scheduler to wait for an existing job to finish before star
 
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  75       all    myjob    alces  R       0:01      1 ip-10-75-1-50
+                  75       all    myjob    alces  R       0:01      1 node01
  
   [centos@gateway1(scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
   Submitted batch job 76
@@ -277,7 +279,7 @@ You can instruct the scheduler to wait for an existing job to finish before star
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   76       all    myjob    alces PD       0:00      1 (Dependency)
-                  75       all    myjob    alces  R       0:15      1 ip-10-75-1-50
+                  75       all    myjob    alces  R       0:15      1 node01
 
 Running task array jobs
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -302,20 +304,20 @@ A convenient way to run such jobs on a cluster is to use a task array, using the
   [centos@gateway1(scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
       77_[85-1000]       all    array    alces PD       0:00      1 (Resources)
-             77_71       all    array    alces  R       0:00      1 ip-10-75-1-163
-             77_72       all    array    alces  R       0:00      1 ip-10-75-1-240
-             77_73       all    array    alces  R       0:00      1 ip-10-75-1-163
-             77_74       all    array    alces  R       0:00      1 ip-10-75-1-240
-             77_75       all    array    alces  R       0:00      1 ip-10-75-1-246
-             77_76       all    array    alces  R       0:00      1 ip-10-75-1-246
-             77_77       all    array    alces  R       0:00      1 ip-10-75-1-208
-             77_78       all    array    alces  R       0:00      1 ip-10-75-1-208
-             77_79       all    array    alces  R       0:00      1 ip-10-75-1-152
-             77_80       all    array    alces  R       0:00      1 ip-10-75-1-203
-             77_81       all    array    alces  R       0:00      1 ip-10-75-1-50
-             77_82       all    array    alces  R       0:00      1 ip-10-75-1-50
-             77_83       all    array    alces  R       0:00      1 ip-10-75-1-152
-             77_84       all    array    alces  R       0:00      1 ip-10-75-1-203
+             77_71       all    array    alces  R       0:00      1 node03
+             77_72       all    array    alces  R       0:00      1 node06
+             77_73       all    array    alces  R       0:00      1 node03
+             77_74       all    array    alces  R       0:00      1 node06
+             77_75       all    array    alces  R       0:00      1 node07
+             77_76       all    array    alces  R       0:00      1 node07
+             77_77       all    array    alces  R       0:00      1 node05
+             77_78       all    array    alces  R       0:00      1 node05
+             77_79       all    array    alces  R       0:00      1 node02
+             77_80       all    array    alces  R       0:00      1 node04
+             77_81       all    array    alces  R       0:00      1 node01
+             77_82       all    array    alces  R       0:00      1 node01
+             77_83       all    array    alces  R       0:00      1 node02
+             77_84       all    array    alces  R       0:00      1 node04
 
 All tasks in an array job are given a job ID with the format ``[job_ID]_[task_number]`` e.g. ``77_81`` would be job number 77, array task 81.
 
