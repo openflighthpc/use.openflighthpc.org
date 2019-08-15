@@ -142,8 +142,8 @@ Once your job has been submitted, use the ``squeue`` command to view the status 
 
   [centos@gateway1(scooby) ~]$ squeue
            JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-              41       all simplejo    alces  R       0:03      1 node01
-              42       all simplejo    alces  R       0:00      1 node01
+              41       all simplejo    centos  R       0:03      1 node01
+              42       all simplejo    centos  R       0:00      1 node01
 
 You can keep running the ``squeue`` command until your job finishes running and disappears from the queue. The output of your batch job will be stored in a file for you to look at. The default location to store the output file is your home directory.  You can use the Linux ``more`` command to view your output file:
 
@@ -165,21 +165,21 @@ Your job runs on whatever node the scheduler can find which is available for use
   Submitted batch job 48
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  43       all simplejo    alces  R       0:04      1 node01
-                  44       all simplejo    alces  R       0:04      1 node01
-                  45       all simplejo    alces  R       0:04      1 node02
-                  46       all simplejo    alces  R       0:04      1 node02
-                  47       all simplejo    alces  R       0:04      1 node03
-                  48       all simplejo    alces  R       0:04      1 node03
+                  43       all simplejo    centos  R       0:04      1 node01
+                  44       all simplejo    centos  R       0:04      1 node01
+                  45       all simplejo    centos  R       0:04      1 node02
+                  46       all simplejo    centos  R       0:04      1 node02
+                  47       all simplejo    centos  R       0:04      1 node03
+                  48       all simplejo    centos  R       0:04      1 node03
  
   [centos@gateway1(scooby) ~]$ scancel 47
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  43       all simplejo    alces  R       0:11      1 node01
-                  44       all simplejo    alces  R       0:11      1 node01
-                  45       all simplejo    alces  R       0:11      1 node02
-                  46       all simplejo    alces  R       0:11      1 node02
-                  48       all simplejo    alces  R       0:11      1 node03
+                  43       all simplejo    centos  R       0:11      1 node01
+                  44       all simplejo    centos  R       0:11      1 node01
+                  45       all simplejo    centos  R       0:11      1 node02
+                  46       all simplejo    centos  R       0:11      1 node02
+                  48       all simplejo    centos  R       0:11      1 node03
 
 Viewing compute host status
 ---------------------------
@@ -249,7 +249,7 @@ Job instructions can be provided in two ways; they are:
   
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  51       all mytestjo    alces  R       0:02      1 node01
+                  51       all mytestjo    centos  R       0:02      1 node01
 
 2. **In your job script**, by including scheduler directives at the top of your job script - you can achieve the same effect as providing options with the ``sbatch`` or ``srun`` commands. Create an example job script or modify your existing script to include a scheduler directive to use a specified job name:
 
@@ -307,7 +307,7 @@ The following example uses the ``--output=[file_name]`` instruction to set the o
    sleep 120
    echo "Finished running - goodbye from $HOSTNAME"
 
-In the above example, assuming the job was submitted as the ``alces`` user and was given the job-ID number ``24``, the scheduler will save the output data from the job in the filename ``/home/alces/output.24``.
+In the above example, assuming the job was submitted as the ``centos`` user and was given the job-ID number ``24``, the scheduler will save the output data from the job in the filename ``/home/centos/output.24``.
 
 Setting working directory for your job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -327,15 +327,15 @@ You can instruct the scheduler to wait for an existing job to finish before star
 
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  75       all    myjob    alces  R       0:01      1 node01
+                  75       all    myjob    centos  R       0:01      1 node01
  
   [centos@gateway1(scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
   Submitted batch job 76
  
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                  76       all    myjob    alces PD       0:00      1 (Dependency)
-                  75       all    myjob    alces  R       0:15      1 node01
+                  76       all    myjob    centos PD       0:00      1 (Dependency)
+                  75       all    myjob    centos  R       0:15      1 node01
 
 Running task array jobs
 ~~~~~~~~~~~~~~~~~~~~~~~
@@ -359,21 +359,21 @@ A convenient way to run such jobs on a cluster is to use a task array, using the
   Submitted batch job 77
   [centos@gateway1(scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-      77_[85-1000]       all    array    alces PD       0:00      1 (Resources)
-             77_71       all    array    alces  R       0:00      1 node03
-             77_72       all    array    alces  R       0:00      1 node06
-             77_73       all    array    alces  R       0:00      1 node03
-             77_74       all    array    alces  R       0:00      1 node06
-             77_75       all    array    alces  R       0:00      1 node07
-             77_76       all    array    alces  R       0:00      1 node07
-             77_77       all    array    alces  R       0:00      1 node05
-             77_78       all    array    alces  R       0:00      1 node05
-             77_79       all    array    alces  R       0:00      1 node02
-             77_80       all    array    alces  R       0:00      1 node04
-             77_81       all    array    alces  R       0:00      1 node01
-             77_82       all    array    alces  R       0:00      1 node01
-             77_83       all    array    alces  R       0:00      1 node02
-             77_84       all    array    alces  R       0:00      1 node04
+      77_[85-1000]       all    array    centos PD       0:00      1 (Resources)
+             77_71       all    array    centos  R       0:00      1 node03
+             77_72       all    array    centos  R       0:00      1 node06
+             77_73       all    array    centos  R       0:00      1 node03
+             77_74       all    array    centos  R       0:00      1 node06
+             77_75       all    array    centos  R       0:00      1 node07
+             77_76       all    array    centos  R       0:00      1 node07
+             77_77       all    array    centos  R       0:00      1 node05
+             77_78       all    array    centos  R       0:00      1 node05
+             77_79       all    array    centos  R       0:00      1 node02
+             77_80       all    array    centos  R       0:00      1 node04
+             77_81       all    array    centos  R       0:00      1 node01
+             77_82       all    array    centos  R       0:00      1 node01
+             77_83       all    array    centos  R       0:00      1 node02
+             77_84       all    array    centos  R       0:00      1 node04
 
 All tasks in an array job are given a job ID with the format ``[job_ID]_[task_number]`` e.g. ``77_81`` would be job number 77, array task 81.
 
@@ -438,7 +438,7 @@ We can then submit the IMB job script to the scheduler, which will automatically
   Submitted batch job 1162
   [centos@gateway1(scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
-                             1162       all      imb    alces  R       0:01      8 ip-10-75-1-[42,45,62,67,105,178,233,250]
+                             1162       all      imb    centos  R       0:01      8 ip-10-75-1-[42,45,62,67,105,178,233,250]
   [centos@gateway1(scooby) ~]$ cat imb.out.1162
   #------------------------------------------------------------
   #    Intel (R) MPI Benchmarks 4.0, MPI-1 part
@@ -514,7 +514,7 @@ You can then see any time limits assigned to running jobs using the command ``sq
   [centos@gateway1(scooby) ~]$ squeue --long
   Tue Aug 30 10:55:55 2016
                JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
-                1163       all    sleep    alces  RUNNING       0:07   2:00:00      1 ip-10-75-1-42
+                1163       all    sleep    centos  RUNNING       0:07   2:00:00      1 ip-10-75-1-42
 
 Further documentation
 ---------------------
