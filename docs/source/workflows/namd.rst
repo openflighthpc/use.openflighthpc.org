@@ -1,8 +1,8 @@
-.. _using-namd-with-alces-flight-compute:
+.. _using-namd-with-openflight-compute:
 
-====================================
-Using NAMD with Alces Flight Compute
-====================================
+==================================
+Using NAMD with openFlight Compute
+==================================
 
 NAMD is a parallel molecular dynamics code designed for high-performance simulation of large biomolecular systems [1]_. The following page details how to install the NAMD application to your Alces Flight Compute environment, as well as how to get started using the NAMD application.
 
@@ -19,7 +19,7 @@ From your Alces Flight Compute environment, you can begin by installing the NAMD
 
 .. code:: bash
 
-    alces gridware install apps/namd --variant all --yes
+    flight gridware install apps/namd --variant all --yes
 
 Using NAMD
 ----------
@@ -42,7 +42,7 @@ Next, start a GNOME desktop session and connect to it to begin using NAMD/VMD [3
 
 .. code:: bash
 
-    alces session start gnome
+    flight session start gnome
 
 Once you are connected to your graphical desktp session, open the Terminal application and load the following modules [4]_:
 

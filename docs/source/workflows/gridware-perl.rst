@@ -8,24 +8,18 @@ The following guide will detail the installation of Perl, along with some of the
 Perl Installation
 -------------------
 
-Many different versions of Perl are available through the Alces Gridware utility - you can see the list of available packages with the ``alces gridware search`` function, for example: 
+Many different versions of Perl are available through the Alces Gridware utility - you can see the list of available packages with the ``flight gridware search`` function, for example: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware search --name perl
-    base/apps/perl/5.10.1          base/apps/perl/5.12.4
-    base/apps/perl/5.14.2          base/apps/perl/5.16.1
-    base/apps/perl/5.16.3          base/apps/perl/5.18.0
-    base/apps/perl/5.20.2          base/apps/perl/5.8.8
-    base/apps/perl/5.8.9           base/apps/sierraperl/20080201
-    base/libs/bioperl/1.2.3        base/libs/bioperl/1.6.901
-    base/libs/bioperl/1.6.923
+    [centos@gateway1(scooby) ~]$ flight gridware search --name perl
+    main/apps/perl/5.20.2      main/libs/bioperl/1.6.923
 
 To install, for example - Perl version 5.20.2; run the following command: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware install apps/perl/5.20.2
+    [centos@gateway1(scooby) ~]$ flight gridware install apps/perl/5.20.2
     Preparing to install main/apps/perl/5.20.2
     Installing main/apps/perl/5.20.2
     Importing apps-perl-5.20.2-el7.tar.gz
@@ -68,11 +62,11 @@ Multiple versions of a package can exist at one time, however only one version o
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module load apps/perl/5.18.0/gcc-4.8.5
     apps/perl/5.18.0/gcc-4.8.5 ... VARIANT (have alternative: apps/perl/5.20.2/gcc-4.8.5)
-    [centos@gateway1(scooby) ~]$ alces module unload apps/perl/5.20.2/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module unload apps/perl/5.20.2/gcc-4.8.5
                   apps/perl/5.20.2/gcc-4.8.5 ... UNLOADING --> OK
-    [centos@gateway1(scooby) ~]$ alces module load apps/perl/5.18.0/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module load apps/perl/5.18.0/gcc-4.8.5
     apps/perl/5.18.0/gcc-4.8.5
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
@@ -88,7 +82,7 @@ Through the Alces Gridware utility, installation of lanaguage libraries is possi
 System-wide language libraries: Perl
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As the ``alces`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account.
+As the ``centos`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account.
 
 Next, load the version of Perl you wish to add language libraries to - for example ``perl/5.20.2``
 
@@ -113,7 +107,7 @@ Next - use the ``cpan`` utility to install the Perl libraries you, or additional
 
 The ``Date::Simple`` module will now be available to any system user loading the ``Perl 5.20.2`` Gridware package. 
 
-To verify successful installation, switch to a non-root user; for example ``alces`` will now be able to see and use the ``Date::Simple`` module: 
+To verify successful installation, switch to a non-root user; for example ``centos`` will now be able to see and use the ``Date::Simple`` module: 
 
 .. code:: bash
 
@@ -146,12 +140,12 @@ As the user you wish to install a Perl module for, load the ``perl`` Gridware ap
       Database was generated on Fri, 19 Feb 2016 02:41:02 GMT
     File::Slurp is up to date (9999.19).
 
-The ``File::Slurp`` installation was successful - and we can now use it as the ``alces`` user. Switching to another user will confirm the user-level installation success; the ``root`` user will not be able to use the ``File::Slurp`` Perl module, requiring the module be installed again: 
+The ``File::Slurp`` installation was successful - and we can now use it as the ``centos`` user. Switching to another user will confirm the user-level installation success; the ``root`` user will not be able to use the ``File::Slurp`` Perl module, requiring the module be installed again: 
 
 .. code:: bash
 
-    [root@gateway1(scooby) ~]# alces module load apps/perl/5.20.2
+    [root@gateway1(scooby) ~]# flight module load apps/perl/5.20.2
     [root@gateway1(scooby) ~]# cpan File::Slurp
     Fetching with Net::FTP:
     ftp://cpan.etla.org/pub/CPAN/authors/01mailrc.txt.gz
-    Reading '/home/alces/gridware/share/perl/5.20.2/cpan/sources/authors/01mailrc.txt.gz'
+    Reading '/home/centos/gridware/share/perl/5.20.2/cpan/sources/authors/01mailrc.txt.gz'

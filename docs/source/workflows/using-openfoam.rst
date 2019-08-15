@@ -1,35 +1,35 @@
-.. _using-openfoam-with-alces-flight-compute:
+.. _using-openfoam-with-openflight-compute:
 
-Using OpenFoam with Alces Flight Compute
-========================================
+Using OpenFoam with openFlight Compute
+======================================
 
-The following guide will run through the basics of using OpenFOAM together with an Alces Flight Compute environment. 
+The following guide will run through the basics of using OpenFOAM together with an openFlight Compute environment. 
 
 Prerequisites
 -------------
 
--  Alces Flight Compute environment deployed with at least 1 compute node
--  AutoScaling disabled (disable with ``alces configure autoscaling disable``)
+-  openFlight Compute environment deployed with at least 1 compute node
+-  AutoScaling disabled (disable with ``flight configure autoscaling disable``)
 
 Installing OpenFoam
 -------------------
 
-The following section details how to install OpenFoam version 4 on your Alces Flight Compute environment. Note - access to the administrator user is required for this section. 
+The following section details how to install OpenFoam version 4 on your openFlight Compute environment. Note - access to the administrator user is required for this section. 
 
 You must first install the Gridware packages required to complete the following tutorial - install the required packages using the following example commands: 
 
 .. code:: bash
 
-    alces gridware install apps/openfoam/4.0.0
+    flight gridware install apps/openfoam/4.0.0
     
 Running OpenFOAM
 ----------------
 
-The following tutorial makes use of the OpenFOAM graphical interface. To use the graphical interface, a GNOME desktop session should be started. Sessions can easily be created using ``alces session``. Create a GNOME desktop session and connect to it using your favourite VNC client: 
+The following tutorial makes use of the OpenFOAM graphical interface. To use the graphical interface, a GNOME desktop session should be started. Sessions can easily be created using ``flight session``. Create a GNOME desktop session and connect to it using your favourite VNC client: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces session start gnome
+    [centos@gateway1(scooby) ~]$ flight session start gnome
     VNC server started:
         Identity: 36a814b0-dc84-11e5-bcf2-fa163e8729ee
             Type: gnome
@@ -41,7 +41,7 @@ The following tutorial makes use of the OpenFOAM graphical interface. To use the
     
     Depending on your client, you can connect to the session using:
     
-      vnc://alces:vvrDZM2Z@10.77.2.129:5901
+      vnc://centos:vvrDZM2Z@10.77.2.129:5901
       10.77.2.129:5901
       10.77.2.129:1
     
@@ -87,7 +87,7 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
     Time   : 14:59:24
     Host   : "gateway1"
     PID    : 12720
-    Case   : /home/alces/cavity
+    Case   : /home/centos/cavity
     nProcs : 1
     fileModificationChecking : Monitoring run-time modified files using timeStampMaster
     allowSystemOperations : Disallowing user-supplied system call operations
@@ -96,7 +96,7 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
     Create time
     
     Creating block mesh from
-        "/home/alces/cavity/constant/polyMesh/blockMeshDict"
+        "/home/centos/cavity/constant/polyMesh/blockMeshDict"
     Creating curved edges
     Creating topology blocks
     Creating topology patches
@@ -157,7 +157,7 @@ Once you have connected to the VNC session - the OpenFOAM application will need 
     Time   : 14:04:02
     Host   : "gateway1"
     PID    : 24607
-    Case   : /home/alces/cavity
+    Case   : /home/centos/cavity
     nProcs : 1
     // * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * //
     Create time

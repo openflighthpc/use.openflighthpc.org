@@ -8,18 +8,18 @@ The following guide will detail the installation of R, along with some of the ad
 R Installation
 --------------
 
-Many different versions of R are available through the Alces Gridware utility - you can see the list of available packages with the ``alces gridware list`` function, for example: 
+Many different versions of R are available through the Alces Gridware utility - you can see the list of available packages with the ``flight gridware list`` function, for example: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware list R
+    [centos@gateway1(scooby) ~]$ flight gridware list R
     main/apps/R/3.2.3  main/apps/R/3.2.5  main/apps/R/3.3.0  main/apps/R/3.3.1
 
 To install, for example - R version 3.3.1; run the following command: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware install apps/R/3.3.1
+    [centos@gateway1(scooby) ~]$ flight gridware install apps/R/3.3.1
     Preparing to install main/apps/R/3.3.1
     Installing main/apps/R/3.3.1
     Importing apps-R-3.3.1-el7.tar.gz
@@ -75,15 +75,15 @@ Multiple versions of a package can exist at one time, however only one version o
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces module load apps/R/3.3.1
+    [centos@gateway1(scooby) ~]$ flight module load apps/R/3.3.1
     apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
      OK
-    [centos@gateway1(scooby) ~]$ alces module unload apps/R
+    [centos@gateway1(scooby) ~]$ flight module unload apps/R
     apps/R/3.3.1/gcc-4.8.5+lapack-3.5.0+blas-3.6.0 ...
                                                  UNLOADING --> OK
-    [centos@gateway1(scooby) ~]$ alces module load apps/R/3.2.3
+    [centos@gateway1(scooby) ~]$ flight module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-3.6.0
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
@@ -102,14 +102,14 @@ Through the Alces Gridware utility, installation of lanaguage libraries is possi
 System-wide language libraries: R
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As the ``alces`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account. 
+As the ``centos`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account. 
 
 To add R packages, first load the version of R you wish to install packages to - for example ``apps/R/3.2.3``: 
 
 .. code:: bash
 
     [centos@gateway1(scooby) ~]$ sudo -s
-    [root@gateway1(scooby) alces]# module load apps/R/3.2.3
+    [root@gateway1(scooby) centos]# module load apps/R/3.2.3
     apps/R/3.2.3/gcc-4.8.5+lapack-3.5.0+blas-20110419
      | -- libs/gcc/system
      |    * --> OK
@@ -120,7 +120,7 @@ Next, load the ``R`` application - and use the ``install.packages`` command to i
 
 .. code:: bash
 
-    [root@gateway1(scooby) alces]# R
+    [root@gateway1(scooby) centos]# R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing
@@ -194,7 +194,7 @@ After the R application is loaded, use the ``install.packages("packagename")`` f
     Type 'q()' to quit R.
     
     > install.packages("snow")
-    Installing package into ‘/home/alces/gridware/share/R/3.2.3’
+    Installing package into ‘/home/centos/gridware/share/R/3.2.3’
     (as ‘lib’ is unspecified)
     * installing *source* package ‘snow’ ...
     * DONE (snow)
@@ -203,13 +203,13 @@ After the R application is loaded, use the ``install.packages("packagename")`` f
     [1] ‘0.4.2’
 
 
-The ``snow`` package installation was successful - and we can now use it as the ``alces`` user. Switching to another user will confirm the user-level installation success, the ``root`` user will not be able to use the ``snow`` R package: 
+The ``snow`` package installation was successful - and we can now use it as the ``centos`` user. Switching to another user will confirm the user-level installation success, the ``root`` user will not be able to use the ``snow`` R package: 
 
 .. code:: bash
 
     [centos@gateway1(scooby) ~]$ sudo -s
-    [root@gateway1(scooby) alces]# module load apps/R/3.2.3
-    [root@gateway1(scooby) alces]# R
+    [root@gateway1(scooby) centos]# module load apps/R/3.2.3
+    [root@gateway1(scooby) centos]# R
     
     R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
     Copyright (C) 2015 The R Foundation for Statistical Computing

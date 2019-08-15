@@ -8,21 +8,20 @@ The following guide will detail the installation of Python, along with some of t
 Python Installation
 -------------------
 
-Many different versions of Python are available through the Alces Gridware utility - you can see the list of available packages with the ``alces gridware search`` function, for example: 
+Many different versions of Python are available through the Alces Gridware utility - you can see the list of available packages with the ``flight gridware search`` function, for example: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware search --name python
-    base/apps/ipython/2.3.0   base/apps/python/2.7.3    base/apps/python/2.7.5
-    base/apps/python/2.7.8    base/apps/python3/3.2.3   base/apps/python3/3.3.3
-    base/apps/python3/3.4.0   base/apps/python3/3.4.3   base/libs/biopython/1.61
-    base/libs/biopython/1.63
+    [centos@gateway1(scooby) ~]$ flight gridware search --name python
+    main/apps/ipython/4.2.1             main/apps/python/2.7.8              main/apps/python3/3.3.3
+    main/apps/python3/3.4.3             main/apps/python3/3.5.2             main/apps/python3/3.6.4
+    main/libs/biopython/1.63            main/libs/pythonlevenshtein/0.12.0
 
 To install, for example - Python version 2.7.8; run the following command: 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces gridware install apps/python/2.7.8
+    [centos@gateway1(scooby) ~]$ flight gridware install apps/python/2.7.8
     Preparing to install main/apps/python/2.7.8
     Installing main/apps/python/2.7.8
     Importing apps-python-2.7.8-el7.tar.gz
@@ -49,7 +48,7 @@ Once the compilation has finished - the Python 2.7.8 Gridware package will be av
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces module load apps/python
+    [centos@gateway1(scooby) ~]$ flight module load apps/python
     apps/python/2.7.8/gcc-4.8.5
      | -- libs/gcc/system
      |    * --> OK
@@ -62,7 +61,7 @@ Multiple versions of Python can be installed at once using Gridware and Modules 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces module avail
+    [centos@gateway1(scooby) ~]$ flight module avail
     ---  /opt/gridware/local/el7/etc/modules  ---
       apps/python/2.7.5/gcc-4.8.5
       apps/python/2.7.8/gcc-4.8.5
@@ -71,11 +70,11 @@ Only one version of a particular application can be loaded at any one time - to 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ alces module load apps/python/2.7.5/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module load apps/python/2.7.5/gcc-4.8.5
     apps/python/2.7.5/gcc-4.8.5 ... VARIANT (have alternative: apps/python/2.7.8/gcc-4.8.5)
-    [centos@gateway1(scooby) ~]$ alces module unload apps/python/2.7.8/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module unload apps/python/2.7.8/gcc-4.8.5
                  apps/python/2.7.8/gcc-4.8.5 ... UNLOADING --> OK
-    [centos@gateway1(scooby) ~]$ alces module load apps/python/2.7.5/gcc-4.8.5
+    [centos@gateway1(scooby) ~]$ flight module load apps/python/2.7.5/gcc-4.8.5
     apps/python/2.7.5/gcc-4.8.5
      | -- libs/gcc/system ... SKIPPED (already loaded)
      |
@@ -91,9 +90,9 @@ Through the Alces Gridware utility, installation of language libraries is possib
 System-wide language libraries: Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-As the ``alces`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account.
+As the ``centos`` administrator user, or any other sudo enabled user that can switch to root - change to the ``root`` user account.
 
-To add Python packages, the ``setuptools`` Gridware application is required - this can be installed using ``alces gridware install setuptools/15.1 --variant default``. Once the ``setuptools`` module is available, load it as the ``root`` user: 
+To add Python packages, the ``setuptools`` Gridware application is required - this can be installed using ``flight gridware install setuptools/15.1 --variant default``. Once the ``setuptools`` module is available, load it as the ``root`` user: 
 
 .. code:: bash
 
@@ -163,7 +162,7 @@ As the user you wish to install a Python library for, load the ``setuptools`` Gr
     >>> HTSeq.__version__
     '0.6.0'
 
-The ``htseq`` installation was successful - and we can now use it as the ``alces`` user. Switching to another user will confirm the user-level installation success, the ``root`` user will not be able to use the ``HTSeq`` Python library: 
+The ``htseq`` installation was successful - and we can now use it as the ``centos`` user. Switching to another user will confirm the user-level installation success, the ``root`` user will not be able to use the ``HTSeq`` Python library: 
 
 .. code:: bash
 
