@@ -53,7 +53,5 @@ Table of Contents
 
    workflows/gridware-R
    workflows/gridware-perl
-   workflows/gridware-python
    workflows/using-openfoam
-   workflows/namd
 
