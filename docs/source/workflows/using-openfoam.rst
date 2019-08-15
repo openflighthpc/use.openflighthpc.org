@@ -184,4 +184,4 @@ Alternatively - the process can be automated through your cluster job scheduler.
 11.  Click and drag on the blue image of the simulation to rotate the display. 
 12.  Click the ``Play`` button using the toolbar to run the output.
 
-.. image:: ../../_images/paraFoam.png
+.. image:: paraFoam.png
