@@ -9,7 +9,6 @@ Prerequisites
 -------------
 
 -  openFlight Compute environment deployed with at least 1 compute node
--  AutoScaling disabled (disable with ``flight configure autoscaling disable``)
 
 Installing OpenFoam
 -------------------
@@ -21,6 +20,9 @@ You must first install the Gridware packages required to complete the following 
 .. code:: bash
 
     flight gridware install apps/openfoam/4.0.0
+
+.. note:: Additional arguments may be required to compile ``openmpi`` (a dependency of openfoam), for a cluster running slurm with no Infiniband the openfoam install command would look something like ``qlogic=false torque=false sge=false pmi=false pmilib=/usr/lib64``
+
     
 Running OpenFOAM
 ----------------
