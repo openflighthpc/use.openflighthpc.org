@@ -49,6 +49,13 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Package Environments
+   :name: package-environment
+
+   package-environments/package-environments
+
+.. toctree::
+   :maxdepth: 1
    :caption: Example Workflows
    :name: example-workflows
 
