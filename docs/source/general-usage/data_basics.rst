@@ -1,7 +1,7 @@
 .. _data_basics:
 
 
-Working with data and files
+Working with Data and Files
 ###########################
 
 Organising data on your cluster
@@ -15,11 +15,11 @@ Your openFlight Compute cluster includes a shared home filesystem which is mount
 Your home directory
 -------------------
 
-The shared filesystem includes the home-directory area for the ``centos`` user which is created when your cluster is launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/home/`` directory, named ``centos`` (``/home/centos``). 
+The shared filesystem includes the home-directory area for the ``flight`` user which is created when your cluster is launched. Linux automatically places users in their home-directory when they login to a node. By default, Flight Compute will create your home-directory under the ``/users/`` directory, named ``flight`` (``/users/flight``). 
 
-The Linux command line will accept the ``~`` (*tilde*) symbol as a substitute for the currently logged-in users' home-directory. The environment variable ``$HOME`` is also set to this value by default. Hence, the following three commands are all equivalent when logged in as the user **centos**:
+The Linux command line will accept the ``~`` (*tilde*) symbol as a substitute for the currently logged-in users' home-directory. The environment variable ``$HOME`` is also set to this value by default. Hence, the following three commands are all equivalent when logged in as the user **flight**:
 
- - ``ls /home/centos``
+ - ``ls /users/flight``
  - ``ls ~``
  - ``ls $HOME``
  
@@ -68,16 +68,16 @@ The cluster login node is accessible via SSH, allowing use of the ``scp`` and ``
 
 Linux and Mac users can use in-built SSH support to copy files. To copy file **mydata.zip** to your cluster on IP address 52.48.62.34, use the command:
 
-  ``scp -i mykeyfile.pem mydata.zip centos@52.48.62.34:.``
+  ``scp -i mykeyfile.pem mydata.zip flight@52.48.62.34:.``
     
 - replace ``mykeyfile.pem`` with the name of your SSH public key
-- replace ``centos`` with your username on the cluster
+- replace ``flight`` with your username on the cluster
 
 **Windows**
 
 Windows users can download and install the `pscp <http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html>`_ command to perform the same operation (for this you will need your .pem key in .ppk format, see :ref:`connecting from Windows with Putty <windows-putty-access>`):
 
-  ``pscp -i mykeyfile.ppk mydata.zip centos@52.48.62.34:/home/centos/.``
+  ``pscp -i mykeyfile.ppk mydata.zip flight@52.48.62.34:/users/flight/.``
     
 **SCP/PSCP**
 
@@ -87,7 +87,7 @@ To retrieve files from the cluster, simply specify the location of the remote fi
 
 To copy file **myresults.zip** from your cluster on IP address 52.48.62.34 to your local Linux or Mac client:
 
-  ``scp -i mykeyfile.pem centos@52.48.62.34:/home/centos/myresults.zip .``
+  ``scp -i mykeyfile.pem flight@52.48.62.34:/users/flight/myresults.zip .``
 
 
 Using a graphical client to copy data
@@ -97,7 +97,7 @@ There are also a number of graphical file-management interfaces available that s
 
 - On a Windows client, download and install `WinSCP <https://winscp.net/eng/download.php>`_
 - Start WinSCP; in the **login** configuration box, enter the IP address of your Flight Compute cluster login node in the ``Host name`` box
-- Enter the username you configured for your cluster in the ``User name`` box (the default user is ``centos``)
+- Enter the username you configured for your cluster in the ``User name`` box (the default user is ``flight``)
 - Click on the ``Advanced`` box and navigate to the ``SSH`` sub-menu, and the ``Authentication`` item
 - In the ``Private key file`` box, select your cluster access private key, and click the ``OK`` box.
 
@@ -162,7 +162,7 @@ For example; to configure access to an AWS S3 account using the access and secre
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage configure my-s3area1 s3
+    [flight@gateway1(scooby) ~]$ flight storage configure my-s3area1 s3
     Display name [my-s3area1]:
     Access key: PZHAA6I2OEDF9F2RQS8Q
     Secret key: ********************
@@ -175,7 +175,7 @@ To configure access to a Swift compatible storage service, enter your username, 
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage configure my-swift swift
+    [flight@gateway1(scooby) ~]$ flight storage configure my-swift swift
     Display name [my-swift]:
     Username: SLOS9275161
     API key: ********************
@@ -186,7 +186,7 @@ When configuring a Dropbox account, the user is provided with a URL that must be
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage configure mydb dropbox
+    [flight@gateway1(scooby) ~]$ flight storage configure mydb dropbox
     Display name [mydb]:
     Please visit the following URL in your browser and click 'Authorize':
     
@@ -201,65 +201,65 @@ Once you have set up one or more configurations, you can switch between the diff
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage use my-s3area1
+    [flight@gateway1(scooby) ~]$ flight storage use my-s3area1
     flight storage use: storage configuration 'my-s3area1' now set as default
     
 From the command-line, users can upload and download data from their configured storage areas. To upload data to an object storage area, use the ``flight storage put <local-file> <object-name>`` command; e.g.
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage put mydatafile datafile-may2016
+    [flight@gateway1(scooby) ~]$ flight storage put mydatafile datafile-may2016
     flight storage put: mydatafile -> datafile-may2016
     
-    [centos@gateway1(scooby) ~]$ flight storage ls
+    [flight@gateway1(scooby) ~]$ flight storage ls
     2012-08-23 17:08        DIR   Public
     2016-05-14 16:10       1335   datafile-may2016
     2012-08-23 17:08     246000   Getting Started.pdf
     
-    [centos@gateway1(scooby) ~]$
+    [flight@gateway1(scooby) ~]$
 
 
 To download data from an object storage service, use the ``flight storage get <object-name> <local-file>`` command; e.g.
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
-    flight storage get: Getting Started.pdf -> /home/centos/instructions.pdf
+    [flight@gateway1(scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
+    flight storage get: Getting Started.pdf -> /users/flight/instructions.pdf
 
-    [centos@gateway1(scooby) ~]$ file instructions.pdf
+    [flight@gateway1(scooby) ~]$ file instructions.pdf
     instructions.pdf: PDF document, version 1.4
 
-    [centos@gateway1(scooby) ~]$
+    [flight@gateway1(scooby) ~]$
 
 
 Users can also create new buckets in their object-storage service using the ``flight storage mb <bucket-name>`` command, and then put objects into the new bucket; e.g.
 
 .. code:: bash
 
-    [centos@gateway1(scooby) data]$ flight storage mb newdata
+    [flight@gateway1(scooby) data]$ flight storage mb newdata
     flight storage mkbucket: created bucket newdata
 
-    [centos@gateway1(scooby) data]$ flight storage put datafile2 newdata/datafile2
+    [flight@gateway1(scooby) data]$ flight storage put datafile2 newdata/datafile2
     flight storage put: datafile2 -> newdata/datafile2
 
-    [centos@gateway1(scooby) data]$ flight storage ls newdata
+    [flight@gateway1(scooby) data]$ flight storage ls newdata
     2016-05-14 16:14   20971520   datafile2
 
-    [centos@gateway1(scooby) data]$
+    [flight@gateway1(scooby) data]$
 
 
 Users can also recursively transfer entire buckets (including any buckets contained within) using the ``-r`` option to the ``flight storage`` command; e.g.
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight storage put -r datadir datadir2
+    [flight@gateway1(scooby) ~]$ flight storage put -r datadir datadir2
     flight storage put: datadir/datafile2 -> datadir2/datafile2
     flight storage put: datadir/datafile3 -> datadir2/datafile3
     flight storage put: datadir/datafile4 -> datadir2/datafile4
     flight storage put: datadir/datafile5 -> datadir2/datafile5
     flight storage put: datadir/datafile6 -> datadir2/datafile6
 
-    [centos@gateway1(scooby) ~]$
+    [flight@gateway1(scooby) ~]$
 
 .. note:: As well as being able to recursively ``put`` entire directories from a local path into the remote storage target, users can also ``get`` and ``rm`` directories recursively, again using the ``-r`` or ``-R`` option with their ``flight storage`` command.
 
