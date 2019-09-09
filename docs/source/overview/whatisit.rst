@@ -9,7 +9,7 @@ openFlight Compute is the software environment designed to help researchers and 
  - An Enterprise Linux operating system
  - A shared filesystem, mounted across all nodes
  - A batch job scheduler
- - Access to a library of software applications
+ - Access to various libraries of software applications
 
 openFlight Compute is designed to get researchers started with HPC as quickly as possible, providing a pre-configured environment which is ready for work immediately. The cluster you build is personal to you - users have root-access to the environment, and can setup and configure the system to their needs. 
 
@@ -76,5 +76,5 @@ We encourage new users to run through a few tutorials in this documentation - ev
 
 There is a community site for supporting the openFlight software - `available online here <https://community.openflighthpc.org/>`_. This website is designed to help users share their experiences of running Flight clusters, report any bugs with the software, and share knowledge to help everyone work more effectively. There is no payment required for using this service, except for the general requirement to be nice to each other - if you find the site useful, then please pay the favour back by helping another user with their problem. 
 
-The openFlight community support site is a great resource for helping with HPC cluster usage, but for software application support you're going to need to contact the developers of the packages themselves. Each software package installed within the openFlight Compute environment (via the flight package manager) comes with a link to the online home of the package (e.g. ``module display apps/gromacs``), where you can highlight any issues to the package maintainers. Remember that many of these software products are open-source and you've paid no fee to use them - try to make your bug-reports and enhancement requests as helpful and friendly as possible to the application developers. They've done you a great service by making their software available for you to use - please be respectful of their time and effort if you need to contact them, and remember to credit their software in your research publications. 
+The openFlight community support site is a great resource for helping with HPC cluster usage, but for software application support you're going to need to contact the developers of the packages themselves. Remember that many of these software products are open-source and you've paid no fee to use them - try to make your bug-reports and enhancement requests as helpful and friendly as possible to the application developers. They've done you a great service by making their software available for you to use - please be respectful of their time and effort if you need to contact them, and remember to credit their software in your research publications. 
 
