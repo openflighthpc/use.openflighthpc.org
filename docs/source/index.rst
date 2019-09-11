@@ -53,13 +53,9 @@ Table of Contents
    :name: package-environment
 
    package-environments/package-environments
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Example Workflows
-   :name: example-workflows
-
-   workflows/gridware-R
-   workflows/gridware-perl
-   workflows/using-openfoam
+   package-environments/conda-usage-example
+   package-environments/easybuild-usage-example
+   package-environments/gridware-usage-example
+   package-environments/singularity-usage-example
+   package-environments/spack-usage-example
 
