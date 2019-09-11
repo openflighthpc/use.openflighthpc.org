@@ -56,6 +56,7 @@ Table of Contents
    package-environments/conda-usage-example
    package-environments/easybuild-usage-example
    package-environments/gridware-usage-example
+   package-environments/modules-usage-example
    package-environments/singularity-usage-example
    package-environments/spack-usage-example
 
