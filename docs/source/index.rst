@@ -44,6 +44,7 @@ Table of Contents
    :caption: Working With Cluster
    :name: working-with-cluster
 
+   working-with-cluster/flight-environment
    working-with-cluster/genders-and-pdsh
    working-with-cluster/slurm
 

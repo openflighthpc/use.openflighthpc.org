@@ -65,22 +65,6 @@ For security reasons, SSH login as the root user is not permitted to a Flight Co
 .. warning:: Users must exercise caution when running commands as root, as they have the potential to disrupt cluster operations. 
 
 
-.. _activate-flight-env:
-
-Activating the Flight Environment
----------------------------------
-
-Flight Compute comes with a powerful software management environment that can (optionally) be used to streamline application installations for the cluster. 
-
-This provides some quick tips to activating the environment and finding out more about the flight environment (``flight info``).
-
-To load the environment, simply run ``flight start`` (which, when first run, will generate some login keys for allowing passwordless login to compute nodes)
-
-.. image:: flightenv.png
-    :alt: Activating the flight environment
-
-.. tip:: The flight environment can be set to automatically start on login for the user by running ``flight set always on``
-
 Moving between login and compute nodes
 --------------------------------------
 
