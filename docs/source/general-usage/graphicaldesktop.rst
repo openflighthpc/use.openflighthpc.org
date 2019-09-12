@@ -77,7 +77,7 @@ The ``xrandr`` command will display a list of available resolutions supported by
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ xrandr
+    [centos@gateway1 (scooby) ~]$ xrandr
     Screen 0: minimum 32 x 32, current 1024 x 768, maximum 32768 x 32768
     VNC-0 connected primary 1024x768+0+0 0mm x 0mm
        1920x1200     60.00
@@ -108,7 +108,7 @@ Your openFlight Flight Compute cluster can also support other types of graphical
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight session avail
+    [centos@gateway1 (scooby) ~]$ flight session avail
     [ ] base/chrome
     [ ] base/cinnamon
     [*] base/default
@@ -130,7 +130,7 @@ Users can view a list of the currently running sessions by using the command ``f
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight session list
+    [centos@gateway1 (scooby) ~]$ flight session list
     +----------+------------+----------------------+-----------------+---------+------+----------+
     | Identity | Type       | Host name            | Host address    | Display | Port | Password |
     +----------+------------+----------------------+-----------------+---------+------+----------+
@@ -146,7 +146,7 @@ To display connection information for an existing session, use the command ``fli
 
 .. code:: bash
 
-    [centos@gateway1(scooby) ~]$ flight session info b7d8e878
+    [centos@gateway1 (scooby) ~]$ flight session info b7d8e878
     Identity:     b7d8e878-19b7-11e6-96cc-0a949a3e07d9
     Type:         gnome
     Host name:    gateway1

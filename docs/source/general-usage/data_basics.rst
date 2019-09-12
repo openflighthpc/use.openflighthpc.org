@@ -162,7 +162,7 @@ For example; to configure access to an AWS S3 account using the access and secre
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage configure my-s3area1 s3
+    [flight@gateway1 (scooby) ~]$ flight storage configure my-s3area1 s3
     Display name [my-s3area1]:
     Access key: PZHAA6I2OEDF9F2RQS8Q
     Secret key: ********************
@@ -175,7 +175,7 @@ To configure access to a Swift compatible storage service, enter your username, 
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage configure my-swift swift
+    [flight@gateway1 (scooby) ~]$ flight storage configure my-swift swift
     Display name [my-swift]:
     Username: SLOS9275161
     API key: ********************
@@ -186,7 +186,7 @@ When configuring a Dropbox account, the user is provided with a URL that must be
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage configure mydb dropbox
+    [flight@gateway1 (scooby) ~]$ flight storage configure mydb dropbox
     Display name [mydb]:
     Please visit the following URL in your browser and click 'Authorize':
     
@@ -201,65 +201,65 @@ Once you have set up one or more configurations, you can switch between the diff
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage use my-s3area1
+    [flight@gateway1 (scooby) ~]$ flight storage use my-s3area1
     flight storage use: storage configuration 'my-s3area1' now set as default
     
 From the command-line, users can upload and download data from their configured storage areas. To upload data to an object storage area, use the ``flight storage put <local-file> <object-name>`` command; e.g.
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage put mydatafile datafile-may2016
+    [flight@gateway1 (scooby) ~]$ flight storage put mydatafile datafile-may2016
     flight storage put: mydatafile -> datafile-may2016
     
-    [flight@gateway1(scooby) ~]$ flight storage ls
+    [flight@gateway1 (scooby) ~]$ flight storage ls
     2012-08-23 17:08        DIR   Public
     2016-05-14 16:10       1335   datafile-may2016
     2012-08-23 17:08     246000   Getting Started.pdf
     
-    [flight@gateway1(scooby) ~]$
+    [flight@gateway1 (scooby) ~]$
 
 
 To download data from an object storage service, use the ``flight storage get <object-name> <local-file>`` command; e.g.
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
+    [flight@gateway1 (scooby) ~]$ flight storage get "Getting Started.pdf" instructions.pdf
     flight storage get: Getting Started.pdf -> /users/flight/instructions.pdf
 
-    [flight@gateway1(scooby) ~]$ file instructions.pdf
+    [flight@gateway1 (scooby) ~]$ file instructions.pdf
     instructions.pdf: PDF document, version 1.4
 
-    [flight@gateway1(scooby) ~]$
+    [flight@gateway1 (scooby) ~]$
 
 
 Users can also create new buckets in their object-storage service using the ``flight storage mb <bucket-name>`` command, and then put objects into the new bucket; e.g.
 
 .. code:: bash
 
-    [flight@gateway1(scooby) data]$ flight storage mb newdata
+    [flight@gateway1 (scooby) data]$ flight storage mb newdata
     flight storage mkbucket: created bucket newdata
 
-    [flight@gateway1(scooby) data]$ flight storage put datafile2 newdata/datafile2
+    [flight@gateway1 (scooby) data]$ flight storage put datafile2 newdata/datafile2
     flight storage put: datafile2 -> newdata/datafile2
 
-    [flight@gateway1(scooby) data]$ flight storage ls newdata
+    [flight@gateway1 (scooby) data]$ flight storage ls newdata
     2016-05-14 16:14   20971520   datafile2
 
-    [flight@gateway1(scooby) data]$
+    [flight@gateway1 (scooby) data]$
 
 
 Users can also recursively transfer entire buckets (including any buckets contained within) using the ``-r`` option to the ``flight storage`` command; e.g.
 
 .. code:: bash
 
-    [flight@gateway1(scooby) ~]$ flight storage put -r datadir datadir2
+    [flight@gateway1 (scooby) ~]$ flight storage put -r datadir datadir2
     flight storage put: datadir/datafile2 -> datadir2/datafile2
     flight storage put: datadir/datafile3 -> datadir2/datafile3
     flight storage put: datadir/datafile4 -> datadir2/datafile4
     flight storage put: datadir/datafile5 -> datadir2/datafile5
     flight storage put: datadir/datafile6 -> datadir2/datafile6
 
-    [flight@gateway1(scooby) ~]$
+    [flight@gateway1 (scooby) ~]$
 
 .. note:: As well as being able to recursively ``put`` entire directories from a local path into the remote storage target, users can also ``get`` and ``rm`` directories recursively, again using the ``-r`` or ``-R`` option with their ``flight storage`` command.
 

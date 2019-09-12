@@ -70,9 +70,9 @@ You can start a new interactive job on your Flight Compute cluster by using the 
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ srun --pty /bin/bash
-  [centos@node01(scooby) ~]$
-  [centos@node01(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ srun --pty /bin/bash
+  [centos@node01 (scooby) ~]$
+  [centos@node01 (scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                  3       all     bash    centos R       0:39      1 node01
 
@@ -93,7 +93,7 @@ If the job-scheduler could not satisfy the resource you've requested for your in
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ srun --pty /bin/bash
+  [centos@gateway1 (scooby) ~]$ srun --pty /bin/bash
   srun: job 20 queued and waiting for resources
 
 Submitting a batch job
@@ -123,13 +123,13 @@ To submit your job script to the cluster job scheduler, use the command ``sbatch
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1 (scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 21
   
-  [centos@gateway1(scooby) ~]$ ls
+  [centos@gateway1 (scooby) ~]$ ls
   clusterware-setup-sshkey.log  simplejobscript.sh  slurm-21.out
   
-  [centos@gateway1(scooby) ~]$ cat slurm-21.out
+  [centos@gateway1 (scooby) ~]$ cat slurm-21.out
   Starting running on host node01
   Finished running - goodbye from node01
 
@@ -140,7 +140,7 @@ Once your job has been submitted, use the ``squeue`` command to view the status 
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
            JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
               41       all simplejo    centos  R       0:03      1 node01
               42       all simplejo    centos  R       0:00      1 node01
@@ -149,7 +149,7 @@ You can keep running the ``squeue`` command until your job finishes running and 
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ more slurm-42.out
+  [centos@gateway1 (scooby) ~]$ more slurm-42.out
   Starting running on host node01
   Finished running - goodbye from node01
 
@@ -157,13 +157,13 @@ Your job runs on whatever node the scheduler can find which is available for use
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1 (scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 46
-  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1 (scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 47
-  [centos@gateway1(scooby) ~]$ sbatch simplejobscript.sh
+  [centos@gateway1 (scooby) ~]$ sbatch simplejobscript.sh
   Submitted batch job 48
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   43       all simplejo    centos  R       0:04      1 node01
                   44       all simplejo    centos  R       0:04      1 node01
@@ -172,8 +172,8 @@ Your job runs on whatever node the scheduler can find which is available for use
                   47       all simplejo    centos  R       0:04      1 node03
                   48       all simplejo    centos  R       0:04      1 node03
  
-  [centos@gateway1(scooby) ~]$ scancel 47
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ scancel 47
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   43       all simplejo    centos  R       0:11      1 node01
                   44       all simplejo    centos  R       0:11      1 node01
@@ -188,7 +188,7 @@ Users can use the ``sinfo -Nl`` command to view the status of compute node hosts
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sinfo -Nl
+  [centos@gateway1 (scooby) ~]$ sinfo -Nl
   Fri Aug 26 14:46:34 2016
   NODELIST        NODES PARTITION       STATE CPUS    S:C:T MEMORY TMP_DISK WEIGHT AVAIL_FE REASON
   node01       1      all*        idle    2    2:1:1   3602    20462      1   (null) none
@@ -244,10 +244,10 @@ Job instructions can be provided in two ways; they are:
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sbatch --job-name=mytestjob simplejobscript.sh
+  [centos@gateway1 (scooby) ~]$ sbatch --job-name=mytestjob simplejobscript.sh
   Submitted batch job 51
   
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   51       all mytestjo    centos  R       0:02      1 node01
 
@@ -325,14 +325,14 @@ You can instruct the scheduler to wait for an existing job to finish before star
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   75       all    myjob    centos  R       0:01      1 node01
  
-  [centos@gateway1(scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
+  [centos@gateway1 (scooby) ~]$ sbatch --dependency=afterok:75 mytestjob.sh
   Submitted batch job 76
  
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                   76       all    myjob    centos PD       0:00      1 (Dependency)
                   75       all    myjob    centos  R       0:15      1 node01
@@ -355,9 +355,9 @@ A convenient way to run such jobs on a cluster is to use a task array, using the
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sbatch arrayjob.sh
+  [centos@gateway1 (scooby) ~]$ sbatch arrayjob.sh
   Submitted batch job 77
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
              JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
       77_[85-1000]       all    array    centos PD       0:00      1 (Resources)
              77_71       all    array    centos  R       0:00      1 node03
@@ -434,12 +434,12 @@ We can then submit the IMB job script to the scheduler, which will automatically
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ sbatch imb.sh
+  [centos@gateway1 (scooby) ~]$ sbatch imb.sh
   Submitted batch job 1162
-  [centos@gateway1(scooby) ~]$ squeue
+  [centos@gateway1 (scooby) ~]$ squeue
                JOBID PARTITION     NAME     USER ST       TIME  NODES NODELIST(REASON)
                              1162       all      imb    centos  R       0:01      8 ip-10-75-1-[42,45,62,67,105,178,233,250]
-  [centos@gateway1(scooby) ~]$ cat imb.out.1162
+  [centos@gateway1 (scooby) ~]$ cat imb.out.1162
   #------------------------------------------------------------
   #    Intel (R) MPI Benchmarks 4.0, MPI-1 part
   #------------------------------------------------------------
@@ -511,7 +511,7 @@ You can then see any time limits assigned to running jobs using the command ``sq
 
 .. code:: bash
 
-  [centos@gateway1(scooby) ~]$ squeue --long
+  [centos@gateway1 (scooby) ~]$ squeue --long
   Tue Aug 30 10:55:55 2016
                JOBID PARTITION     NAME     USER    STATE       TIME TIME_LIMI  NODES NODELIST(REASON)
                 1163       all    sleep    centos  RUNNING       0:07   2:00:00      1 ip-10-75-1-42
