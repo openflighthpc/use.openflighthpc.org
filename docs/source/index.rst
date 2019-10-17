@@ -37,7 +37,6 @@ Table of Contents
 
    general-usage/basic_cluster_operation
    general-usage/data_basics
-   general-usage/graphicaldesktop
 
 .. toctree::
    :maxdepth: 1
