@@ -200,7 +200,7 @@ To display connection information for an existing session, use the command ``fli
 Users can terminate a running session by ending their graphical application (e.g. by logging out of a Gnome session, or exiting a terminal session), or by using the ``flight desktop kill <session-ID>`` command. A terminated session will be immediately stopped, disconnecting any users.
 
 Securing your graphical desktop session
-=======================================
+---------------------------------------
 
 As the VNC protocol does not natively provide support for security protocols such as SSL, you may wish to take steps to secure access to your VNC sessions.
 
