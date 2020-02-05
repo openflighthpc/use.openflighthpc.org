@@ -8,6 +8,8 @@ The `Slurm <http://slurm.schedmd.com/>`_ research environment job-scheduler is a
 Running an interactive job
 --------------------------
 
+.. note:: If using a single node research environment with a scheduler then interactive jobs are unnecessary as the only available resources will be local
+
 You can start a new interactive job on your Flight Compute research environment by using the ``srun`` command; the scheduler will search for an available compute node, and provide you with an interactive login shell on the node if one is available.
 
 .. code:: bash
@@ -61,7 +63,7 @@ We can execute that script directly on the login node by using the command ``bas
   Started running on host gateway1
   Finished running - goodbye from gateway1
 
-To submit your job script to the research environment job scheduler, use the command ``sbatch simplejobscript.sh``. The job scheduler should immediately report the job-ID for your job; your job-ID is unique for your current Alces Flight Compute research environment - it will never be repeated once used.
+To submit your job script to the research environment job scheduler, use the command ``sbatch simplejobscript.sh``. The job scheduler should immediately report the job-ID for your job; your job-ID is unique for your current OpenFlight Flight Compute research environment - it will never be repeated once used.
 
 .. code:: bash
 
