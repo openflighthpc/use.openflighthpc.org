@@ -46,7 +46,15 @@ Table of Contents
    working-with-research-environment/flight-environment
    working-with-research-environment/flight-desktop
    working-with-research-environment/genders-and-pdsh
-   working-with-research-environment/slurm
+
+.. toctree::
+   :maxdepth: 1
+   :caption: Running Jobs
+   :name: running-jobs
+
+   running-jobs/local
+   running-jobs/what-is-a-scheduler
+   running-jobs/slurm
 
 .. toctree::
    :maxdepth: 1
