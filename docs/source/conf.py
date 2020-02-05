@@ -19,9 +19,9 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'openFlightHPC-compute'
-copyright = '2019, openFlightHPC'
-author = 'openFlightHPC'
+project = 'OpenFlightHPC-compute'
+copyright = '2019, OpenFlightHPC'
+author = 'OpenFlightHPC'
 
 # The short X.Y version
 version = ''
@@ -107,7 +107,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'openFlightHPC-computedoc'
+htmlhelp_basename = 'OpenFlightHPC-computedoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -134,8 +134,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'openFlightHPC-compute.tex', 'openFlightHPC-compute Documentation',
-     'openFlightHPC', 'manual'),
+    (master_doc, 'OpenFlightHPC-compute.tex', 'OpenFlightHPC-compute Documentation',
+     'OpenFlightHPC', 'manual'),
 ]
 
 
@@ -144,7 +144,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'openflighthpc-compute', 'openFlightHPC-compute Documentation',
+    (master_doc, 'openflighthpc-compute', 'OpenFlightHPC-compute Documentation',
      [author], 1)
 ]
 
@@ -155,8 +155,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'openFlightHPC-compute', 'openFlightHPC-compute Documentation',
-     author, 'openFlightHPC-compute', 'One line description of project.',
+    (master_doc, 'OpenFlightHPC-compute', 'OpenFlightHPC-compute Documentation',
+     author, 'OpenFlightHPC-compute', 'One line description of project.',
      'Miscellaneous'),
 ]
 

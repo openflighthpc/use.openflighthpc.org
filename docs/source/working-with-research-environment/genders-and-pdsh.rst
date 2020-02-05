@@ -18,8 +18,8 @@ Nodeattr and pdsh can be installed using the yum package manager, simply::
 Finding the names of your compute nodes
 ---------------------------------------
 
-An openFlight Compute research environment may contain any number of compute nodes depending on your research environment size. The hostnames of compute nodes us
-ually follow a sequential order (e.g. node01, node02, node03... node10). openFlight Compute automatically creates a list of compute nod
+An OpenFlight Compute research environment may contain any number of compute nodes depending on your research environment size. The hostnames of compute nodes us
+ually follow a sequential order (e.g. node01, node02, node03... node10). OpenFlight Compute automatically creates a list of compute nod
 e names and uses them to populate a *genders* group called **nodes**. This genders file can be found at ``/opt/flight/etc/genders``.
 
 Users can find the names of their compute nodes by using the ``nodeattr`` command; e.g.

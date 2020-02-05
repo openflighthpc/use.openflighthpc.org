@@ -1,12 +1,12 @@
-.. openFlightHPC-compute documentation master file, created by
+.. OpenFlightHPC-compute documentation master file, created by
    sphinx-quickstart on Wed Aug  7 11:09:52 2019.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the openFlightHPC Compute Usage documentation!
+Welcome to the OpenFlightHPC Compute Usage documentation!
 =========================================================
 
-This site contains the documentation to get you started with using an openFlightHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
+This site contains the documentation to get you started with using an OpenFlightHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
 
 Acknowledgements
 ----------------
