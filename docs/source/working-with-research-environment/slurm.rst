@@ -3,32 +3,32 @@
 Slurm Scheduler
 ===============
 
-The `Slurm <http://slurm.schedmd.com/>`_ cluster job-scheduler is an open-source project used by many high performance computing systems around the world - including many of the `TOP 500 <https://www.top500.org/lists/>`_ supercomputers. 
+The `Slurm <http://slurm.schedmd.com/>`_ research environment job-scheduler is an open-source project used by many high performance computing systems around the world - including many of the `TOP 500 <https://www.top500.org/lists/>`_ supercomputers. 
 
 What is a batch job scheduler?
 ------------------------------
 
-Most existing High-performance Compute Clusters are managed by a job scheduler; also known as the batch scheduler, workload manager, queuing system or load-balancer. The scheduler allows multiple users to fairly share compute nodes, allowing system administrators to control how resources are made available to different groups of users. All schedulers are designed to perform the following functions:
+Most existing High-performance Compute Research Environments are managed by a job scheduler; also known as the batch scheduler, workload manager, queuing system or load-balancer. The scheduler allows multiple users to fairly share compute nodes, allowing system administrators to control how resources are made available to different groups of users. All schedulers are designed to perform the following functions:
 
- - Allow users to submit new jobs to the cluster
+ - Allow users to submit new jobs to the research environment
  - Allow users to monitor the state of their queued and running jobs
  - Allow users and system administrators to control running jobs
  - Monitor the status of managed resources including system load, memory available, etc.
 
-When a new job is submitted by a user, the cluster scheduler software assigns compute cores and memory to satisfy the job requirements. If suitable resources are not available to run the job, the scheduler adds the job to a queue until enough resources are available for the job to run. You can configure the scheduler to control how jobs are selected from the queue and executed on cluster nodes, including automatically preparing nodes to run parallel MPI jobs. Once a job has finished running, the scheduler returns the resources used by the job to the pool of free resources, ready to run another user job.
+When a new job is submitted by a user, the research environment scheduler software assigns compute cores and memory to satisfy the job requirements. If suitable resources are not available to run the job, the scheduler adds the job to a queue until enough resources are available for the job to run. You can configure the scheduler to control how jobs are selected from the queue and executed on research environment nodes, including automatically preparing nodes to run parallel MPI jobs. Once a job has finished running, the scheduler returns the resources used by the job to the pool of free resources, ready to run another user job.
 
 
 Types of compute job
 --------------------
 
-Users can run a number of different types of job via the cluster scheduler, including:
+Users can run a number of different types of job via the research environment scheduler, including:
 
  - **Batch jobs**; single-threaded applications that run only on one compute core
  - **Array jobs**; two or more similar batch jobs which are submitted together for convenience
  - **SMP** or **multi-threaded** jobs; multi-threaded applications that run on two or more compute cores on the same compute node
  - **Parallel jobs**; multi-threaded applications making use of an MPI library to run on multiple cores spread over one or more compute nodes
 
-The cluster job-scheduler is responsible for finding compute nodes in your cluster to run all these different types of jobs on. It keeps track of the available resources and allocates jobs to individual groups of nodes, making sure not to over-commit CPU and memory. The example below shows how a job-scheduler might allocate jobs of different types to a group of 8-CPU-core compute nodes:
+The research environment job-scheduler is responsible for finding compute nodes in your research environment to run all these different types of jobs on. It keeps track of the available resources and allocates jobs to individual groups of nodes, making sure not to over-commit CPU and memory. The example below shows how a job-scheduler might allocate jobs of different types to a group of 8-CPU-core compute nodes:
 
 .. image:: tetris.jpg
    :alt: Jobs allocated to compute nodes by a job-scheduler
@@ -37,36 +37,36 @@ The cluster job-scheduler is responsible for finding compute nodes in your clust
 Interactive and batch jobs
 --------------------------
 
-Users typically interact with compute clusters by running either **interactive** or **batch** (also known as **non-interactive**) jobs.
+Users typically interact with compute research environments by running either **interactive** or **batch** (also known as **non-interactive**) jobs.
 
   - An interactive job is one that the user directly controls, either via a graphical interface or by typing at the command-prompt.
   - A batch job is run by writing a list of instructions that are passed to compute nodes to run at some point in the future.
 
-Both methods of running jobs can be equally as efficient, particularly on a personal, ephemeral cluster. Both classes of job can be of any type - for example, it's possible to run interactive parallel jobs and batch multi-threaded jobs across your cluster. The choice of which class of job-type you want to use will depend on the application you're running, and which method is more convenient for you to use.
+Both methods of running jobs can be equally as efficient, particularly on a personal, ephemeral research environment. Both classes of job can be of any type - for example, it's possible to run interactive parallel jobs and batch multi-threaded jobs across your research environment. The choice of which class of job-type you want to use will depend on the application you're running, and which method is more convenient for you to use.
 
 
-Why use a job-scheduler on a personal cluster?
-----------------------------------------------
+Why use a job-scheduler on a personal research environment?
+-----------------------------------------------------------
 
-Good question. On shared multi-user clusters, a job-scheduler is often used as a control mechanism to make sure that users don't unfairly monopolise the valuable compute resources. In extreme cases, the scheduler may be wielded by system administrators to force "good behaviour" in a shared environment, and can feel like an imposition to cluster users.
+Good question. On shared multi-user research environments, a job-scheduler is often used as a control mechanism to make sure that users don't unfairly monopolise the valuable compute resources. In extreme cases, the scheduler may be wielded by system administrators to force "good behaviour" in a shared environment, and can feel like an imposition to research environment users.
 
-With your own personal cluster, you have the ability to directly control the resources available for your job - you don't need a job-scheduler to limit your usage.
+With your own personal research environment, you have the ability to directly control the resources available for your job - you don't need a job-scheduler to limit your usage.
 
-However - there are a number of reasons why your own job-scheduler can still be a useful tool in your cluster:
+However - there are a number of reasons why your own job-scheduler can still be a useful tool in your research environment:
 
  1. It can help you organise multi-stage work flows, with batch jobs launching subsequent jobs in a defined process.
  2. It can automate launching of MPI jobs, finding available nodes to run applications on.
  3. It can help prevent accidentally over-allocating CPUs or memory, which could lead to nodes failing.
  4. It can help bring discipline to the environment, providing a consistent method to replicate the running of jobs in different environments.
- 5. Jobs queued in the scheduler can be used to trigger scaling-up the size of your cluster, with compute nodes released from the cluster when there are no jobs to run, saving you money.
+ 5. Jobs queued in the scheduler can be used to trigger scaling-up the size of your research environment, with compute nodes released from the research environment when there are no jobs to run, saving you money.
 
-Your Alces Flight Compute cluster comes with a job-scheduler pre-installed, ready for you to start using. The scheduler uses very few resources when idle, so you can choose to use it if you find it useful, or run jobs manually across your cluster if you prefer.
+Your Alces Flight Compute research environment comes with a job-scheduler pre-installed, ready for you to start using. The scheduler uses very few resources when idle, so you can choose to use it if you find it useful, or run jobs manually across your research environment if you prefer.
 
 
 Running an interactive job
 --------------------------
 
-You can start a new interactive job on your Flight Compute cluster by using the ``srun`` command; the scheduler will search for an available compute node, and provide you with an interactive login shell on the node if one is available.
+You can start a new interactive job on your Flight Compute research environment by using the ``srun`` command; the scheduler will search for an available compute node, and provide you with an interactive login shell on the node if one is available.
 
 .. code:: bash
 
@@ -78,7 +78,7 @@ You can start a new interactive job on your Flight Compute cluster by using the 
 
 In the above example, the ``srun`` command is used together with two options: ``--pty`` and ``/bin/bash``. The ``--pty`` option executes the task in pseudo terminal mode, allowing the session to act like a standard terminal session. The ``/bin/bash`` option is the command that you wish to run - here the default Linux shell, BASH. 
 
-Alternatively, the ``srun`` command can also be executed from an interactive desktop session; the job-scheduler will automatically find an available compute node to launch the job on. Applications launched from within the ``srun`` session are executed on the assigned cluster compute node.
+Alternatively, the ``srun`` command can also be executed from an interactive desktop session; the job-scheduler will automatically find an available compute node to launch the job on. Applications launched from within the ``srun`` session are executed on the assigned research environment compute node.
 
 .. image:: interactivejob.png
      :alt: Running an interactive graphical job
@@ -99,7 +99,7 @@ If the job-scheduler could not satisfy the resource you've requested for your in
 Submitting a batch job
 ----------------------
 
-Batch (or non-interactive) jobs allow users to leverage one of the main benefits of having a cluster scheduler; jobs can be queued up with instructions on how to run them and then executed across the cluster while the user `does something else <https://www.quora.com/What-do-you-do-while-youre-waiting-for-your-code-to-finish-running>`_. Users submit jobs as scripts, which include instructions on how to run the job - the output of the job (*stdout* and *stderr* in Linux terminology) is written to a file on disk for review later on. You can write a batch job that does anything that can be typed on the command-line.
+Batch (or non-interactive) jobs allow users to leverage one of the main benefits of having a research environment scheduler; jobs can be queued up with instructions on how to run them and then executed across the research environment while the user `does something else <https://www.quora.com/What-do-you-do-while-youre-waiting-for-your-code-to-finish-running>`_. Users submit jobs as scripts, which include instructions on how to run the job - the output of the job (*stdout* and *stderr* in Linux terminology) is written to a file on disk for review later on. You can write a batch job that does anything that can be typed on the command-line.
 
 We'll start with a basic example - the following script is written in bash (the default Linux command-line interpreter). You can create the script yourself using the `Nano <http://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/>`_ command-line editor - use the command ``nano simplejobscript.sh`` to create a new file, then type in the contents below. The script does nothing more than print some messages to the screen (the **echo** lines), and sleeps for 120 seconds. We've saved the script to a file called ``simplejobscript.sh`` - the ``.sh`` extension helps to remind us that this is a *shell* script, but adding a filename extension isn't strictly necessary for Linux.
 
@@ -119,7 +119,7 @@ We can execute that script directly on the login node by using the command ``bas
   Started running on host gateway1
   Finished running - goodbye from gateway1
 
-To submit your job script to the cluster job scheduler, use the command ``sbatch simplejobscript.sh``. The job scheduler should immediately report the job-ID for your job; your job-ID is unique for your current Alces Flight Compute cluster - it will never be repeated once used.
+To submit your job script to the research environment job scheduler, use the command ``sbatch simplejobscript.sh``. The job scheduler should immediately report the job-ID for your job; your job-ID is unique for your current Alces Flight Compute research environment - it will never be repeated once used.
 
 .. code:: bash
 
@@ -127,7 +127,7 @@ To submit your job script to the cluster job scheduler, use the command ``sbatch
   Submitted batch job 21
   
   [centos@gateway1 (scooby) ~]$ ls
-  clusterware-setup-sshkey.log  simplejobscript.sh  slurm-21.out
+  simplejobscript.sh  slurm-21.out
   
   [centos@gateway1 (scooby) ~]$ cat slurm-21.out
   Starting running on host node01
@@ -136,7 +136,7 @@ To submit your job script to the cluster job scheduler, use the command ``sbatch
 Viewing and controlling queued jobs
 -----------------------------------
 
-Once your job has been submitted, use the ``squeue`` command to view the status of the job queue. If you have available compute nodes, your job should be shown in the ``R`` (running) state; if your compute nodes are busy, or you've launched an auto-scaling cluster and currently have no running nodes, your job may be shown in the ``PD`` (pending) state until compute nodes are available to run it. If a job is in ``PD`` state - the reason for being unable to run will be displayed in the ``NODELIST(REASON)`` column of the ``squeue`` output.
+Once your job has been submitted, use the ``squeue`` command to view the status of the job queue. If you have available compute nodes, your job should be shown in the ``R`` (running) state; if your compute nodes are busy, or you've launched an auto-scaling research environment and currently have no running nodes, your job may be shown in the ``PD`` (pending) state until compute nodes are available to run it. If a job is in ``PD`` state - the reason for being unable to run will be displayed in the ``NODELIST(REASON)`` column of the ``squeue`` output.
 
 .. code:: bash
 
@@ -153,7 +153,7 @@ You can keep running the ``squeue`` command until your job finishes running and 
   Starting running on host node01
   Finished running - goodbye from node01
 
-Your job runs on whatever node the scheduler can find which is available for use - you can try submitting a bunch of jobs at the same time, and using the ``squeue`` command to see where they run. The scheduler is likely to spread them around over different nodes (if you have multiple nodes). The login node is not included in your cluster for scheduling purposes - jobs submitted to the scheduler will only be run on your cluster compute nodes. You can use the ``scancel <job-ID>`` command to delete a job you've submitted, whether it's running or still in the queued state.
+Your job runs on whatever node the scheduler can find which is available for use - you can try submitting a bunch of jobs at the same time, and using the ``squeue`` command to see where they run. The scheduler is likely to spread them around over different nodes (if you have multiple nodes). The login node is not included in your research environment for scheduling purposes - jobs submitted to the scheduler will only be run on your research environment compute nodes. You can use the ``scancel <job-ID>`` command to delete a job you've submitted, whether it's running or still in the queued state.
 
 .. code:: bash
 
@@ -184,7 +184,7 @@ Your job runs on whatever node the scheduler can find which is available for use
 Viewing compute host status
 ---------------------------
 
-Users can use the ``sinfo -Nl`` command to view the status of compute node hosts in your Flight Compute cluster.
+Users can use the ``sinfo -Nl`` command to view the status of compute node hosts in your Flight Compute research environment.
 
 .. code:: bash
 
@@ -216,7 +216,7 @@ The ``sinfo`` output will show (from left-to-right):
 Default resources
 -----------------
 
-In order to promote efficient usage of your cluster, the job-scheduler automatically sets a number of default resources for your jobs when you submit them. These defaults must be overridden by users to help the scheduler understand how you want it to run your job - if we don't include any instructions to the scheduler, then our job will take the defaults shown below:
+In order to promote efficient usage of your research environment, the job-scheduler automatically sets a number of default resources for your jobs when you submit them. These defaults must be overridden by users to help the scheduler understand how you want it to run your job - if we don't include any instructions to the scheduler, then our job will take the defaults shown below:
 
  - Number of CPU cores for your job: ``1``
  - Number of nodes for your job: the default behavior is to allocate enough nodes to satisfy the requirements of the number of CPUs requested
@@ -236,7 +236,7 @@ This documentation will explain how to change these limits to suit the jobs that
 Controlling resources
 ---------------------
 
-In order to promote efficient usage of the cluster - the job-scheduler is automatically configured with default run-time limits for jobs. These defaults can be overridden by users to help the scheduler understand how you want it to run your job. If we don't include any instructions to the scheduler then the default limits are applied to a job.
+In order to promote efficient usage of the research environment - the job-scheduler is automatically configured with default run-time limits for jobs. These defaults can be overridden by users to help the scheduler understand how you want it to run your job. If we don't include any instructions to the scheduler then the default limits are applied to a job.
 
 Job instructions can be provided in two ways; they are:
 
@@ -273,7 +273,7 @@ Including job scheduler instructions in your job-scripts is often the most conve
 Dynamic scheduler variables
 ---------------------------
 
-Your cluster job scheduler automatically creates a number of pseudo environment variables which are available to your job-scripts when they are running on cluster compute nodes, along with standard Linux variables. Useful values include the following:
+Your research environment job scheduler automatically creates a number of pseudo environment variables which are available to your job-scripts when they are running on research environment compute nodes, along with standard Linux variables. Useful values include the following:
 
  - ``$HOME``                       The location of your home-directory
  - ``$USER``                       The Linux username of the submitting user
@@ -312,7 +312,7 @@ In the above example, assuming the job was submitted as the ``centos`` user and 
 Setting working directory for your job
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-By default, jobs are executed from your home-directory on the cluster (i.e. ``/home/<your-user-name>``, ``$HOME`` or ``~``). You can include ``cd`` commands in your job-script to change to different directories; alternatively, you can provide an instruction to the scheduler to change to a different directory to run your job. The available options are:
+By default, jobs are executed from your home-directory on the research environment (i.e. ``/home/<your-user-name>``, ``$HOME`` or ``~``). You can include ``cd`` commands in your job-script to change to different directories; alternatively, you can provide an instruction to the scheduler to change to a different directory to run your job. The available options are:
 
  - ``-D | --workdir=[dir_name]`` - instruct the job scheduler to move into the directory specified before starting to run the job on a compute node
 
@@ -342,7 +342,7 @@ Running task array jobs
 
 A common workload is having a large number of jobs to run which basically do the same thing, aside perhaps from having different input data. You could generate a job-script for each of them and submit it, but that's not very convenient - especially if you have many hundreds or thousands of tasks to complete. Such jobs are known as **task arrays** - an `embarrassingly parallel <https://en.wikipedia.org/wiki/Embarrassingly_parallel>`_ job will often fit into this category.
 
-A convenient way to run such jobs on a cluster is to use a task array, using the ``-a [array_spec] | --array=[array_spec]`` directive. Your job-script can then use the pseudo environment variables created by the scheduler to refer to data used by each task in the job. The following job-script uses the ``$SLURM_ARRAY_TASK_ID``/``%a`` variable to echo its current task ID to an output file:
+A convenient way to run such jobs on a research environment is to use a task array, using the ``-a [array_spec] | --array=[array_spec]`` directive. Your job-script can then use the pseudo environment variables created by the scheduler to refer to data used by each task in the job. The following job-script uses the ``$SLURM_ARRAY_TASK_ID``/``%a`` variable to echo its current task ID to an output file:
 
 .. code:: bash
 
@@ -398,7 +398,7 @@ Running multi-threaded jobs
 
 If users want to use multiple cores on a compute node to run a multi-threaded application, they need to inform the scheduler - this allows jobs to use multiple cores without needing to rely on any interconnect. Using multiple CPU cores is achieved by specifying the ``-n, --ntasks=<number>`` option in either your submission command or the scheduler directives in your job script. The ``--ntasks`` option informs the scheduler of the number of cores you wish to reserve for use. If the parameter is omitted, the default ``--ntasks=1`` is assumed. You could specify the option ``-n 4`` to request 4 CPU cores for your job. Besides the number of tasks, you will need to add ``--nodes=1`` to your scheduler command or at the top of your job script with ``#SBATCH --nodes=1``, this will set the maximum number of nodes to be used to 1 and prevent the job selecting cores from multiple nodes.
 
-.. note:: If you request more cores than are available on a node in your cluster, the job will not run until a node capable of fulfilling your request becomes available. The scheduler will display the error in the output of the ``squeue`` command
+.. note:: If you request more cores than are available on a node in your research environment, the job will not run until a node capable of fulfilling your request becomes available. The scheduler will display the error in the output of the ``squeue`` command
 
 Running Parallel (MPI) jobs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -416,7 +416,7 @@ You can request multiple cores over multiple nodes using a combination of schedu
 ``--ntasks=16``
   Requests 16 cores across any available compute nodes
 
-For example, to use 64 CPU cores on the cluster for a single application, the instruction ``--ntasks=64`` can be used. The following example shows launching the **Intel Message-passing** MPI benchmark across 64 cores on your cluster. This application is launched via the OpenMPI ``mpirun`` command - the number of threads and list of hosts are automatically assembled by the scheduler and passed to the MPI at runtime. This jobscript loads the ``apps/imb`` module before launching the
+For example, to use 64 CPU cores on the research environment for a single application, the instruction ``--ntasks=64`` can be used. The following example shows launching the **Intel Message-passing** MPI benchmark across 64 cores on your research environment. This application is launched via the OpenMPI ``mpirun`` command - the number of threads and list of hosts are automatically assembled by the scheduler and passed to the MPI at runtime. This jobscript loads the ``apps/imb`` module before launching the
 application, which automatically loads the module for **OpenMPI**.
 
 .. code:: bash
@@ -482,13 +482,13 @@ We can then submit the IMB job script to the scheduler, which will automatically
         2097152           20       305.00      6557.31
         4194304           10       675.20      5924.16
 
-.. note:: If you request more CPU cores than your cluster can accommodate, your job will wait in the queue. If you are using the Flight Compute auto-scaling feature, your job will start to run once enough new nodes have been launched.
+.. note:: If you request more CPU cores than your research environment can accommodate, your job will wait in the queue. If you are using the Flight Compute auto-scaling feature, your job will start to run once enough new nodes have been launched.
 
 
 Requesting more memory
 ----------------------
 
-In order to promote best use of the cluster scheduler - particularly in a shared environment, it is recommended to inform the scheduler the maximum required memory per submitted job. This helps the scheduler appropriately place jobs on the available nodes in the cluster.
+In order to promote best use of the research environment scheduler - particularly in a shared environment, it is recommended to inform the scheduler the maximum required memory per submitted job. This helps the scheduler appropriately place jobs on the available nodes in the research environment.
 
 You can specify the maximum amount of memory required per submitted job with the ``--mem=<MB>`` option. This informs the scheduler of the memory required for the submitted job. Optionally - you can also request an amount of memory *per CPU core* rather than a total amount of memory required per job. To specify an amount of memory to allocate *per core*, use the ``--mem-per-cpu=<MB>`` option.
 
@@ -497,7 +497,7 @@ You can specify the maximum amount of memory required per submitted job with the
 Requesting a longer runtime
 ---------------------------
 
-In order to promote best-use of the cluster scheduler, particularly in a shared environment, it is recommend to inform the scheduler the amount of time the submitted job is expected to take. You can inform the cluster scheduler of the expected runtime using the ``-t, --time=<time>`` option. For example - to submit a job that runs for 2 hours, the following example job script could be used:
+In order to promote best-use of the research environment scheduler, particularly in a shared environment, it is recommend to inform the scheduler the amount of time the submitted job is expected to take. You can inform the research environment scheduler of the expected runtime using the ``-t, --time=<time>`` option. For example - to submit a job that runs for 2 hours, the following example job script could be used:
 
 .. code:: bash
 
@@ -519,7 +519,7 @@ You can then see any time limits assigned to running jobs using the command ``sq
 Further documentation
 ---------------------
 
-This guide is a quick overview of some of the many available options of the SLURM cluster scheduler. For more information on the available options, you may wish to reference some of the following available documentation for the demonstrated SLURM commands;
+This guide is a quick overview of some of the many available options of the SLURM research environment scheduler. For more information on the available options, you may wish to reference some of the following available documentation for the demonstrated SLURM commands;
 
  - Use the ``man squeue`` command to see a full list of scheduler queue instructions
  - Use the ``man sbatch/srun`` command to see a full list of scheduler submission instructions

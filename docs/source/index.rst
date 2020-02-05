@@ -6,7 +6,7 @@
 Welcome to the openFlightHPC Compute Usage documentation!
 =========================================================
 
-This site contains the documentation to get you started with using an openFlightHPC Compute cluster. It provides details for accessing the cluster, exploring the various features of the cluster and examples of common workflows with the cluster.
+This site contains the documentation to get you started with using an openFlightHPC Compute research environment. It provides details for accessing the research environment, exploring the various features of the research environment and examples of common workflows with the research environment.
 
 Acknowledgements
 ----------------
@@ -35,18 +35,18 @@ Table of Contents
    :caption: General Usage
    :name: general-usage
 
-   general-usage/basic_cluster_operation
+   general-usage/basic_research_environment_operation
    general-usage/data_basics
 
 .. toctree::
    :maxdepth: 1
-   :caption: Working With Cluster
-   :name: working-with-cluster
+   :caption: Working With Research Environment
+   :name: working-with-research-environment
 
-   working-with-cluster/flight-environment
-   working-with-cluster/flight-desktop
-   working-with-cluster/genders-and-pdsh
-   working-with-cluster/slurm
+   working-with-research-environment/flight-environment
+   working-with-research-environment/flight-desktop
+   working-with-research-environment/genders-and-pdsh
+   working-with-research-environment/slurm
 
 .. toctree::
    :maxdepth: 1

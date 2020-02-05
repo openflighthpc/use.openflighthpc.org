@@ -8,7 +8,7 @@ Flight Environment
 Activating the Flight Environment
 ---------------------------------
 
-Flight Compute comes with a powerful software management environment that can (optionally) be used to streamline application installations for the cluster.
+Flight Compute comes with a powerful software management environment that can (optionally) be used to streamline application installations for the research environment.
 
 This provides some quick tips to activating the environment and finding out more about the flight environment (``flight info``).
 
@@ -23,7 +23,7 @@ To load the environment, simply run ``flight start`` (which, when first run, wil
 Working with Package Environments
 ---------------------------------
 
-Various :ref:`package-environments` are available for managing software on your Flight cluster. These can be installed using the ``env`` subcommand::
+Various :ref:`package-environments` are available for managing software on your Flight research environment. These can be installed using the ``env`` subcommand::
 
     [flight@gateway1 (scooby) ~]$ flight env create gridware
 

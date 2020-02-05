@@ -3,7 +3,7 @@
 What is openFlightHPC Compute?
 ==============================
 
-openFlight Compute is the software environment designed to help researchers and scientists run their own high-performance compute cluster quickly and easily. The basic structure provided for users is as follows:
+openFlight Compute is the software environment designed to help researchers and scientists run their own high-performance compute research environment quickly and easily. The basic structure provided for users is as follows:
 
  - One gateway node, plus a configurable number of compute nodes
  - An Enterprise Linux operating system
@@ -11,9 +11,9 @@ openFlight Compute is the software environment designed to help researchers and 
  - A batch job scheduler
  - Access to various libraries of software applications
 
-openFlight Compute is designed to get researchers started with HPC as quickly as possible, providing a pre-configured environment which is ready for work immediately. The cluster you build is personal to you - users have root-access to the environment, and can setup and configure the system to their needs. 
+openFlight Compute is designed to get researchers started with HPC as quickly as possible, providing a pre-configured environment which is ready for work immediately. The research environment you build is personal to you - users have root-access to the environment, and can setup and configure the system to their needs. 
 
-Your cluster is designed to be **ephemeral** - i.e. you run it for as long as you need it, then shut it down. Although there is no built-in time limit for openFlight Compute clusters, the most effective way of sharing compute resources in the cloud is to book them out only when you need them. Contrary to popular belief, you can achieve huge cost savings over purchasing server hardware if you learn to work effectively in this way.
+Your research environment is designed to be **ephemeral** - i.e. you run it for as long as you need it, then shut it down. Although there is no built-in time limit for openFlight Compute research environments, the most effective way of sharing compute resources in the cloud is to book them out only when you need them. Contrary to popular belief, you can achieve huge cost savings over purchasing server hardware if you learn to work effectively in this way.
 
 Who is it for?
 --------------
@@ -24,9 +24,9 @@ Who is it for?
 What doesn't it do?
 -------------------
 
-**An important part of having ultimate power to control your environment is taking responsibility for it.** While no one is going to tell you how you should configure your cluster, you need to remember good security practice, and look after both your personal and research data. openFlight Compute provides you with a personal, single-user cluster - please use responsibility. openFlight Compute is not indended as a replacement for your national super-computer centre.
+**An important part of having ultimate power to control your environment is taking responsibility for it.** While no one is going to tell you how you should configure your research environment, you need to remember good security practice, and look after both your personal and research data. openFlight Compute provides you with a personal, single-user research environment - please use responsibility. openFlight Compute is not indended as a replacement for your national super-computer centre.
 
-If you're running openFlight Compute on AWS, then there are some great tutorials written by the Amazon team on how to secure your environment. Just because you're running on public cloud, doesn't mean that your cluster is any less secure than a cluster running in your basement. Start at the `AWS Security Pages <https://aws.amazon.com/security>`_, and talk to a security expert if you're still unsure.
+If you're running openFlight Compute on AWS, then there are some great tutorials written by the Amazon team on how to secure your environment. Just because you're running on public cloud, doesn't mean that your research environment is any less secure than a research environment running in your basement. Start at the `AWS Security Pages <https://aws.amazon.com/security>`_, and talk to a security expert if you're still unsure.
 
 
 .. _clientprereqs:
@@ -36,7 +36,7 @@ Prerequisites
 
 You're going to need access to some computers. If you already have access to cloud resources, then great - you're ready to go. There are some specific requirements depending on your platform type, which are discussed in the relevant chapters of this guide. If you don't have access to anything yet then that's fine too - just sign up for an AWS account now and you'll have all the access you need. 
 
-You'll need a client device as well - something to log into your cluster from. The requirements on client devices are fairly minimal, but you'll need:
+You'll need a client device as well - something to log into your research environment from. The requirements on client devices are fairly minimal, but you'll need:
 
  - **A computer with a screen and a keyboard**; you can probably access on a tablet or smartphone too, if your typing is good enough
  - **A relatively modern web-browser**; Apple Safari, Google Chrome, Microsoft Edge, Mozilla Firefox, and pretty much anything else that was written/updated in the last couple of years should all be fine.
@@ -70,11 +70,11 @@ We've tried to make recommendations for open-source and/or free software client 
 Where can I get help?
 =====================
 
-This documentation is designed to walk users through the first stages of creating their clusters, and getting started in the environment. Capable users with some experience can be up and running in a handful of minutes - don't panic if it takes you a little more time, especially if you've not used Linux or HPC clusters before. Firstly - don't worry that you might break something complicated and expensive; one of the joys of having your own personal environment is that no one will tell you that you're doing it wrong, and nothing is at risk of being broken, aside from the data and work you've done yourself in the environment. 
+This documentation is designed to walk users through the first stages of creating their research environments, and getting started in the environment. Capable users with some experience can be up and running in a handful of minutes - don't panic if it takes you a little more time, especially if you've not used Linux or HPC research environments before. Firstly - don't worry that you might break something complicated and expensive; one of the joys of having your own personal environment is that no one will tell you that you're doing it wrong, and nothing is at risk of being broken, aside from the data and work you've done yourself in the environment. 
 
 We encourage new users to run through a few tutorials in this documentation - even if you have plenty of HPC experience. Technology moves forward all the time and new features are constantly popping up that could save you effort in future. If you do run into problems, try replicating the steps you went through to get where you are - sometimes a typo in a command early-on in your workflow might not cause any errors until right at the end of your work. It can help to work collaboratively with other researchers running similar jobs - not only are two sets of eyes better than one, you'll both get something out of working together to achieve a shared goal.
 
-There is a community site for supporting the openFlight software - `available online here <https://community.openflighthpc.org/>`_. This website is designed to help users share their experiences of running Flight clusters, report any bugs with the software, and share knowledge to help everyone work more effectively. There is no payment required for using this service, except for the general requirement to be nice to each other - if you find the site useful, then please pay the favour back by helping another user with their problem. 
+There is a community site for supporting the openFlight software - `available online here <https://community.openflighthpc.org/>`_. This website is designed to help users share their experiences of running Flight research environments, report any bugs with the software, and share knowledge to help everyone work more effectively. There is no payment required for using this service, except for the general requirement to be nice to each other - if you find the site useful, then please pay the favour back by helping another user with their problem. 
 
-The openFlight community support site is a great resource for helping with HPC cluster usage, but for software application support you're going to need to contact the developers of the packages themselves. Remember that many of these software products are open-source and you've paid no fee to use them - try to make your bug-reports and enhancement requests as helpful and friendly as possible to the application developers. They've done you a great service by making their software available for you to use - please be respectful of their time and effort if you need to contact them, and remember to credit their software in your research publications. 
+The openFlight community support site is a great resource for helping with HPC research environment usage, but for software application support you're going to need to contact the developers of the packages themselves. Remember that many of these software products are open-source and you've paid no fee to use them - try to make your bug-reports and enhancement requests as helpful and friendly as possible to the application developers. They've done you a great service by making their software available for you to use - please be respectful of their time and effort if you need to contact them, and remember to credit their software in your research publications. 
 
