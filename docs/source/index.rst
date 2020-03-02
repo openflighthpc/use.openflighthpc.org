@@ -32,29 +32,11 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: General Usage
-   :name: general-usage
-
-   general-usage/basic_research_environment_operation
-   general-usage/data_basics
-
-.. toctree::
-   :maxdepth: 1
    :caption: Working With Research Environment
    :name: working-with-research-environment
 
    working-with-research-environment/flight-environment
    working-with-research-environment/flight-desktop
-   working-with-research-environment/genders-and-pdsh
-
-.. toctree::
-   :maxdepth: 1
-   :caption: Running Jobs
-   :name: running-jobs
-
-   running-jobs/local
-   running-jobs/what-is-a-scheduler
-   running-jobs/slurm
 
 .. toctree::
    :maxdepth: 1
