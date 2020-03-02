@@ -32,11 +32,11 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Working With Research Environment
-   :name: working-with-research-environment
+   :caption: Working With User Suite
+   :name: working-with-user-suite
 
-   working-with-research-environment/flight-environment
-   working-with-research-environment/flight-desktop
+   working-with-user-suite/flight-environment
+   working-with-user-suite/flight-desktop
 
 .. toctree::
    :maxdepth: 1
