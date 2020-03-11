@@ -48,14 +48,14 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Package Environments
-   :name: package-environment
+   :caption: Package Ecosystems
+   :name: package-ecosystem
 
-   package-environments/package-environments
-   package-environments/conda-usage-example
-   package-environments/easybuild-usage-example
-   package-environments/gridware-usage-example
-   package-environments/modules-usage-example
-   package-environments/singularity-usage-example
-   package-environments/spack-usage-example
+   package-ecosystems/package-ecosystems
+   package-ecosystems/conda-usage-example
+   package-ecosystems/easybuild-usage-example
+   package-ecosystems/gridware-usage-example
+   package-ecosystems/modules-usage-example
+   package-ecosystems/singularity-usage-example
+   package-ecosystems/spack-usage-example
 
