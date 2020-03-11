@@ -3,10 +3,10 @@
 Modules: Usage Example
 ======================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a modules software environment. 
+Flight Env provides quick setup methods to create a modules software ecosystem. 
 
 To install and use modules:
 
@@ -23,7 +23,7 @@ To install and use modules:
        > ✅ Creating environment (modules@default)
     Environment modules@default has been created
 
-- Activate the modules environment::
+- Activate the modules ecosystem::
 
     [flight@gateway1 ~]$ flight env activate modules
     <modules> [flight@gateway1 ~]$
@@ -37,7 +37,7 @@ To install and use modules:
 Installing Software
 -------------------
 
-Unlike the other :ref:`package environments <package-environments>`, modules provides the environment management tool but not any package management tools. Therefore, with the modules environment, you are free to compile and install software in a module compatible manner.
+Unlike the other :ref:`package ecosystems <package-ecosystems>`, modules provides the ecosystem management tool but not any package management tools. Therefore, with the modules ecosystem, you are free to compile and install software in a module compatible manner.
 
 For more information on building software for modules, see the `modulefile reference <https://modules.readthedocs.io/en/latest/modulefile.html>`_ and build documentation for the chosen software.
 

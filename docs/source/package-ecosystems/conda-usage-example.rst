@@ -3,10 +3,10 @@
 Conda: Usage Example
 ====================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a conda software environment. 
+Flight Env provides quick setup methods to create a conda software ecosystem. 
 
 To install and use conda:
 
@@ -20,7 +20,7 @@ To install and use conda:
        > ✅ Creating environment (conda@default)
     Environment conda@default has been created
 
-- Activate the conda environment::
+- Activate the conda ecosystem::
 
     [flight@gateway1 ~]$ flight env activate conda
     (base) <conda> [flight@gateway1 ~]$

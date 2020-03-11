@@ -1,9 +1,9 @@
-.. _package-environments:
+.. _package-ecosystems:
 
-Package Environments
-====================
+Package Ecosystems
+==================
 
-The flight environment provides streamlined installation of many popular software management tools. These can be seen below along with the features they provide.
+The Flight Env command provides streamlined installation of many popular software management ecosystems. These can be seen below along with the features they provide.
 
 .. tabularcolumns:: |C|C|C|C|C|C|C|
 
@@ -25,10 +25,10 @@ The flight environment provides streamlined installation of many popular softwar
 
 More information on the features:
 
-  - **Dependency Management** - The tool automatically resolves and installs dependencies
-  - **Compilation** - The tool builds software from source for optimised functionality on the system (Note: these sorts of installations will take a long time)
-  - **Preconfigured Binaries** - The tool provides binaries of the available software for quicker installation to get applications installed quickly
-  - **Multiple Versions** - The tool allows for installation of multiple versions of software which can be toggled between
+  - **Dependency Management** - The ecosystem automatically resolves and installs dependencies
+  - **Compilation** - The ecosystem builds software from source for optimised functionality on the system (Note: these sorts of installations will take a long time)
+  - **Preconfigured Binaries** - The ecosystem provides binaries of the available software for quicker installation to get applications installed quickly
+  - **Multiple Versions** - The ecosystem allows for installation of multiple versions of software which can be toggled between
 
 ``*`` is for partial support. Technically these features are supported in certain use cases and with additional work. This is not considered full support as multiple versions may require undocumented or uncommon use-cases of the tool. 
 

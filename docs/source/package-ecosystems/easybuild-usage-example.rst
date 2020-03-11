@@ -3,10 +3,10 @@
 Easybuild: Usage Example
 ========================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a easybuild software environment. 
+Flight Env provides quick setup methods to create an easybuild software ecosystem. 
 
 To install and use easybuild:
 
@@ -32,7 +32,7 @@ To install and use easybuild:
        > ✅ Bootstrapping EasyBuild environment (easybuild@default)
     Environment easybuild@default has been created
 
-- Activate the easybuild environment::
+- Activate the easybuild ecosystem::
 
     [flight@gateway1 ~]$ flight env activate easybuild
     <easybuild> [flight@gateway1 ~]$

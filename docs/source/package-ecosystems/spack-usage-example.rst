@@ -3,10 +3,10 @@
 Spack: Usage Example
 ====================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a spack software environment. 
+Flight Env provides quick setup methods to create a spack software ecosystem. 
 
 To install and use spack:
 
@@ -21,7 +21,7 @@ To install and use spack:
        > ✅ Bootstrapping Spack environment (spack@default)
     Environment spack@default has been created
 
-- Activate the spack environment::
+- Activate the spack ecosystem::
 
     [flight@gateway1 ~]$ flight env activate spack
     <spack> [flight@gateway1 ~]$

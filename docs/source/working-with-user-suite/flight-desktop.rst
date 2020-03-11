@@ -5,8 +5,8 @@ Flight Desktop
 
 Your OpenFlight Compute gateway node can run graphical desktop sessions to support users who want to run interactive applications across the research environment. The system can support a number of different sessions simultaneously, and allow multiple remote participants to connect to the same session to support training and collaborative activities.
 
-Install Flight Desktop Environments
------------------------------------
+Install Flight Desktop Types
+----------------------------
 
 Your OpenFlight Compute research environment supports many types of graphical session designed to provide interactive applications directly to users. To view the available types of session, use the command ``flight desktop avail``:
 
@@ -89,7 +89,7 @@ Users with Mac clients can use the URL provided in the command output to connect
 
 A one-time randomized password is automatically generated automatically by OpenFlight Compute when a new session is started. Linux and Windows users may be prompted to enter this password when they connect to the desktop session.
 
-Once connected to the graphical desktop, users can use the environment as they would a local Linux machine:
+Once connected to the graphical desktop, users can use the session as they would a local Linux machine:
 
 .. image:: vncdesktop.png
     :alt: VNC desktop session

@@ -3,10 +3,10 @@
 Gridware: Usage Example
 =======================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a gridware software environment. 
+Flight Env provides quick setup methods to create a gridware software ecosystem. 
 
 To install and use gridware:
 
@@ -28,7 +28,7 @@ To install and use gridware:
        > ✅ Creating environment (gridware@default)
     Environment gridware@default has been created
 
-- Activate the gridware environment::
+- Activate the gridware ecosystem::
 
     [flight@gateway1 ~]$ flight env activate gridware
     <gridware> [flight@gateway1 ~]$

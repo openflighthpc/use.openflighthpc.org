@@ -3,10 +3,10 @@
 Singularity: Usage Example
 ==========================
 
-Creating and Using Environment
-------------------------------
+Creating and Using Ecosystem
+----------------------------
 
-Flight Env provides quick setup methods to create a singularity software environment. 
+Flight Env provides quick setup methods to create a singularity software ecosystem. 
 
 To install and use singularity:
 
@@ -31,7 +31,7 @@ To install and use singularity:
        > ✅ Creating environment (singularity@default)
     Environment singularity@default has been created
 
-- Activate the singularity environment::
+- Activate the singularity ecosystem::
 
     [flight@gateway1 ~]$ flight env activate singularity
     <singularity> [flight@gateway1 ~]$
