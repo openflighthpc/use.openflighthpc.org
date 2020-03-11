@@ -41,6 +41,8 @@ Unlike the other :ref:`package ecosystems <package-ecosystems>`, modules provide
 
 Module files can be installed to ``~/.local/share/flight/env/modules+default/modulefiles`` (for local modules ecosystems) or to ``/opt/apps/flight/env/modules+global/modulefiles`` (for global modules ecosystems).
 
+.. note:: If the modules ecosystem has been installed with a :ref:`custom ecosystem name <custom-ecosystem-names>` then the path will not be ``modules+default``/``modules+global`` but instead ``modules+mycustomname``
+
 For more information on building software for modules, see the `modulefile reference <https://modules.readthedocs.io/en/latest/modulefile.html>`_ and build documentation for the chosen software.
 
 
