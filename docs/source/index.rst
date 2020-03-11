@@ -42,6 +42,7 @@ Table of Contents
    :caption: Working With User Suite
    :name: working-with-user-suite
 
+   working-with-user-suite/flight-system
    working-with-user-suite/flight-environment
    working-with-user-suite/flight-desktop
 

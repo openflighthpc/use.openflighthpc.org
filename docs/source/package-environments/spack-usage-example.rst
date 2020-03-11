@@ -3,7 +3,6 @@
 Spack: Usage Example
 ====================
 
-
 Creating and Using Environment
 ------------------------------
 
@@ -11,7 +10,7 @@ Flight Env provides quick setup methods to create a spack software environment.
 
 To install and use spack:
 
-- :ref:`Activate the flight environment <activate-flight-env>`
+- :ref:`Activate the flight system <activate-flight-system>`
 - Create the spack installation for the user::
 
     [flight@gateway1 ~]$ flight env create spack

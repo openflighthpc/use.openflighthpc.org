@@ -3,7 +3,6 @@
 Singularity: Usage Example
 ==========================
 
-
 Creating and Using Environment
 ------------------------------
 
@@ -13,7 +12,7 @@ To install and use singularity:
 
 .. note:: If installing singularity for a user then there are a number of restrictions and additional steps to consider in configuring the environment. See the ``Personal Environment`` section of ``flight env info singularity``. 
 
-- :ref:`Activate the flight environment <activate-flight-env>`
+- :ref:`Activate the flight system <activate-flight-system>`
 - Create the singularity installation for the user::
 
     [flight@gateway1 ~]$ flight env create singularity

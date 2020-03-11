@@ -3,7 +3,6 @@
 Modules: Usage Example
 ======================
 
-
 Creating and Using Environment
 ------------------------------
 
@@ -11,7 +10,7 @@ Flight Env provides quick setup methods to create a modules software environment
 
 To install and use modules:
 
-- :ref:`Activate the flight environment <activate-flight-env>`
+- :ref:`Activate the flight system <activate-flight-system>`
 - Create the modules installation for the user::
 
     [flight@gateway1 ~]$ flight env create modules
