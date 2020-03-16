@@ -22,8 +22,8 @@ To load the system, simply run ``flight start`` (which, when first run, will gen
 Customising the Environment
 ---------------------------
 
-Setting the Cluster Name
-^^^^^^^^^^^^^^^^^^^^^^^^
+Setting the Research Environment Name
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 To identify the research environment that's being worked on, a cluster name can be specified and displayed in the prompt when the Flight System is active. 
 
