@@ -42,6 +42,8 @@ The quickest and simplest way to get up and running with the user suite is to si
 
     [flight@gateway1 ~]$ yum install flight-user-suite
 
+.. note:: After installation, either reboot your system or logout and back in again to expose the `flight` command to the shell
+
 Installation Method 2: Slightly Less Quick
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -62,6 +64,8 @@ Each tool in the user suite is also available through the repositories and can b
 - Install Flight Starter RPM::
 
     [flight@gateway1 ~]$ yum install flight-starter
+
+.. note:: After installation, either reboot your system or logout and back in again to expose the `flight` command to the shell
 
 Installation Method 3: Manual
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
