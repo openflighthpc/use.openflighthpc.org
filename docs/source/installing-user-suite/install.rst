@@ -22,13 +22,35 @@ The OpenFlight project packages tools as RPMs and hosts them in a yum repository
 Adding the OpenFlight Yum Repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-- Install the OpenFlight release RPM::
+.. tabs:: 
 
-    [flight@gateway1 ~]$ yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-3-1.noarch.rpm
+    .. group-tab:: CentOS 7
 
-- Rebuild the yum cache::
+        - Install the OpenFlight release RPM::
 
-    [flight@gateway1 ~]$ yum makecache
+            [flight@gateway1 ~]$ yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-3-1.noarch.rpm
+
+        - Rebuild the yum cache::
+
+            [flight@gateway1 ~]$ yum makecache
+
+    .. group-tab:: CentOS 8
+
+        - Install the OpenFlight release RPM::
+
+            [flight@gateway1 ~]$ dnf install https://repo.openflighthpc.org/openflight/centos/8/x86_64/openflighthpc-release-3-1.noarch.rpm
+
+        - Rebuild the yum cache::
+
+            [flight@gateway1 ~]$ dnf makecache
+
+    .. group-tab:: Ubuntu 18.04
+
+        Coming Soon...
+
+    .. group-tab:: Ubuntu 20.04
+
+        Coming Soon...
 
 Now the OpenFlight repositories are installed. There are 3 repositories available - production (enabled by default), dev (providing development releases of tools) and vault (access to old, unsupported versions and retired tools).
 
@@ -38,9 +60,27 @@ Installation Method 1: Quick
 
 The quickest and simplest way to get up and running with the user suite is to simply install the group package for the tools. This will ensure that compatible versions of all the tools are installed.
 
-- Install the user suite RPM::
+.. tabs::
 
-    [flight@gateway1 ~]$ yum install flight-user-suite
+    .. group-tab:: CentOS 7
+
+        - Install the user suite RPM::
+
+            [flight@gateway1 ~]$ yum install flight-user-suite
+
+    .. group-tab:: CentOS 8
+
+        - Install the user suite RPM::
+
+            [flight@gateway1 ~]$ dnf install flight-user-suite
+
+    .. group-tab:: Ubuntu 18.04
+
+        Coming Soon...
+
+    .. group-tab:: Ubuntu 20.04
+
+        Coming Soon...
 
 .. note:: After installation, either reboot your system or logout and back in again to expose the ``flight`` command to the shell
 
@@ -49,21 +89,51 @@ Installation Method 2: Slightly Less Quick
 
 Each tool in the user suite is also available through the repositories and can be installed one at a time.
 
-- Install the Flight Runway RPM::
+.. tabs::
 
-    [flight@gateway1 ~]$ yum install flight-runway
+    .. group-tab:: CentOS 7
 
-- Install Flight Env RPM::
+        - Install the Flight Runway RPM::
 
-    [flight@gateway1 ~]$ yum install flight-env
+            [flight@gateway1 ~]$ yum install flight-runway
 
-- Install Flight Desktop RPM::
+        - Install Flight Env RPM::
 
-    [flight@gateway1 ~]$ yum install flight-desktop
+            [flight@gateway1 ~]$ yum install flight-env
 
-- Install Flight Starter RPM::
+        - Install Flight Desktop RPM::
 
-    [flight@gateway1 ~]$ yum install flight-starter
+            [flight@gateway1 ~]$ yum install flight-desktop
+
+        - Install Flight Starter RPM::
+
+            [flight@gateway1 ~]$ yum install flight-starter
+
+    .. group-tab:: CentOS 8
+
+        - Install the Flight Runway RPM::
+
+            [flight@gateway1 ~]$ dnf install flight-runway
+
+        - Install Flight Env RPM::
+
+            [flight@gateway1 ~]$ dnf install flight-env
+
+        - Install Flight Desktop RPM::
+
+            [flight@gateway1 ~]$ dnf install flight-desktop
+
+        - Install Flight Starter RPM::
+
+            [flight@gateway1 ~]$ dnf install flight-starter
+
+    .. group-tab:: Ubuntu 18.04
+
+        Coming Soon...
+
+    .. group-tab:: Ubuntu 20.04
+
+        Coming Soon...
 
 .. note:: After installation, either reboot your system or logout and back in again to expose the ``flight`` command to the shell
 
