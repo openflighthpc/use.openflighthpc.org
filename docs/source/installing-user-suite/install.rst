@@ -24,7 +24,7 @@ Adding the OpenFlight Yum Repositories
 
 - Install the OpenFlight release RPM::
 
-    [flight@gateway1 ~]$ yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-2-1.noarch.rpm
+    [flight@gateway1 ~]$ yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-3-1.noarch.rpm
 
 - Rebuild the yum cache::
 
