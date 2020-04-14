@@ -71,7 +71,7 @@ An example workflow using perl is demonstrated below.
 
 - Install perl library (this may prompt for initial ``cpan`` configuration, once configuration is complete then the library will be installed)::
 
-    <singularity> [flight@gateway1 ~]$ singularity exec -w cpan File::Slurp
+    <singularity> [flight@gateway1 ~]$ singularity exec -w perl_5.30.simg cpan File::Slurp
     INFO:    Convert SIF file to sandbox...
     perl: warning: Setting locale failed.
     perl: warning: Please check that your locale settings:
