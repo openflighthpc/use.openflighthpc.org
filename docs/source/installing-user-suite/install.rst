@@ -28,25 +28,32 @@ Adding the OpenFlight Yum Repositories
 
         - Install the OpenFlight release RPM::
 
-            [flight@gateway1 ~]$ yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-3-1.noarch.rpm
+            [flight@gateway1 ~]$ sudo yum install https://repo.openflighthpc.org/openflight/centos/7/x86_64/openflighthpc-release-3-1.noarch.rpm
 
         - Rebuild the yum cache::
 
-            [flight@gateway1 ~]$ yum makecache
+            [flight@gateway1 ~]$ sudo yum makecache
 
     .. group-tab:: CentOS 8
 
         - Install the OpenFlight release RPM::
 
-            [flight@gateway1 ~]$ dnf install https://repo.openflighthpc.org/openflight/centos/8/x86_64/openflighthpc-release-3-1.noarch.rpm
+            [flight@gateway1 ~]$ sudo dnf install https://repo.openflighthpc.org/openflight/centos/8/x86_64/openflighthpc-release-3-1.noarch.rpm
 
         - Rebuild the yum cache::
 
-            [flight@gateway1 ~]$ dnf makecache
+            [flight@gateway1 ~]$ sudo dnf makecache
 
     .. group-tab:: Ubuntu 18.04
 
-        Coming Soon...
+        - Install the OpenFlight release deb::
+
+            flight@gateway1:~$ sudo su -
+            root@gateway1:~# echo "deb [trusted=yes] https://repo.openflighthpc.org/openflight-dev/ubuntu bionic main" > /etc/apt/sources.list.d/openflight.list
+
+        - Update the apt cache::
+
+            flight@gatewat1:~$ sudo apt-get update
 
     .. group-tab:: Ubuntu 20.04
 
@@ -66,17 +73,17 @@ The quickest and simplest way to get up and running with the user suite is to si
 
         - Install the user suite RPM::
 
-            [flight@gateway1 ~]$ yum install flight-user-suite
+            [flight@gateway1 ~]$ sudo yum install flight-user-suite
 
     .. group-tab:: CentOS 8
 
         - Install the user suite RPM::
 
-            [flight@gateway1 ~]$ dnf install flight-user-suite
+            [flight@gateway1 ~]$ sudo dnf install flight-user-suite
 
     .. group-tab:: Ubuntu 18.04
 
-        Coming Soon...
+        Coming Soon - But the packages can be installed via Installation Method 2!
 
     .. group-tab:: Ubuntu 20.04
 
@@ -95,41 +102,55 @@ Each tool in the user suite is also available through the repositories and can b
 
         - Install the Flight Runway RPM::
 
-            [flight@gateway1 ~]$ yum install flight-runway
+            [flight@gateway1 ~]$ sudo yum install flight-runway
 
         - Install Flight Env RPM::
 
-            [flight@gateway1 ~]$ yum install flight-env
+            [flight@gateway1 ~]$ sudo yum install flight-env
 
         - Install Flight Desktop RPM::
 
-            [flight@gateway1 ~]$ yum install flight-desktop
+            [flight@gateway1 ~]$ sudo yum install flight-desktop
 
         - Install Flight Starter RPM::
 
-            [flight@gateway1 ~]$ yum install flight-starter
+            [flight@gateway1 ~]$ sudo yum install flight-starter
 
     .. group-tab:: CentOS 8
 
         - Install the Flight Runway RPM::
 
-            [flight@gateway1 ~]$ dnf install flight-runway
+            [flight@gateway1 ~]$ sudo dnf install flight-runway
 
         - Install Flight Env RPM::
 
-            [flight@gateway1 ~]$ dnf install flight-env
+            [flight@gateway1 ~]$ sudo dnf install flight-env
 
         - Install Flight Desktop RPM::
 
-            [flight@gateway1 ~]$ dnf install flight-desktop
+            [flight@gateway1 ~]$ sudo dnf install flight-desktop
 
         - Install Flight Starter RPM::
 
-            [flight@gateway1 ~]$ dnf install flight-starter
+            [flight@gateway1 ~]$ sudo dnf install flight-starter
 
     .. group-tab:: Ubuntu 18.04
 
-        Coming Soon...
+        - Install Flight Runway deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-runway
+
+        - Install Flight Env deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-env
+
+        - Install Flight Desktop deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-desktop
+
+        - Install Flight Starter deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-starter
 
     .. group-tab:: Ubuntu 20.04
 
