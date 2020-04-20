@@ -46,10 +46,13 @@ Adding the OpenFlight Yum Repositories
 
     .. group-tab:: Ubuntu 18.04
 
-        - Install the OpenFlight release deb::
+        - Import the public signature for OpenFlight::
 
-            flight@gateway1:~$ sudo su -
-            root@gateway1:~# echo "deb [trusted=yes] https://repo.openflighthpc.org/openflight-dev/ubuntu bionic main" > /etc/apt/sources.list.d/openflight.list
+            flight@gateway1:~$ sudo apt-key adv --fetch-keys https://repo.openflighthpc.org/openflighthpc-archive-key.asc
+
+        - Install the OpenFlight repository::
+
+            flight@gateway1:~$ sudo apt-add-repository "deb https://repo.openflighthpc.org/openflight/ubuntu bionic main"
 
         - Update the apt cache::
 
