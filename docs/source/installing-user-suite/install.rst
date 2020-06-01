@@ -17,10 +17,10 @@ Flight User Suite is made up of the following tools:
 Installing Flight User Suite
 ----------------------------
 
-The OpenFlight project packages tools as RPMs and hosts them in a yum repository that can be quickly installed via a release RPM. 
+The OpenFlight project packages tools as both RPMs and debs that are hosted in package repositories which can be quickly installed with a couple of commands. 
 
-Adding the OpenFlight Yum Repositories
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Adding the OpenFlight Package Repositories
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. tabs:: 
 
@@ -56,7 +56,7 @@ Adding the OpenFlight Yum Repositories
 
         - Update the apt cache::
 
-            flight@gatewat1:~$ sudo apt-get update
+            flight@gateway1:~$ sudo apt-get update
 
     .. group-tab:: Ubuntu 20.04
 
