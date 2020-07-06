@@ -52,7 +52,7 @@ Adding the OpenFlight Package Repositories
 
         - Install the OpenFlight repository::
 
-            flight@gateway1:~$ sudo apt-add-repository "deb https://repo.openflighthpc.org/openflight/ubuntu bionic main"
+            flight@gateway1:~$ sudo apt-add-repository "deb https://repo.openflighthpc.org/openflight/ubuntu stable main"
 
         - Update the apt cache::
 
@@ -60,7 +60,17 @@ Adding the OpenFlight Package Repositories
 
     .. group-tab:: Ubuntu 20.04
 
-        Coming Soon...
+        - Import the public signature for OpenFlight::
+
+            flight@gateway1:~$ sudo apt-key adv --fetch-keys https://repo.openflighthpc.org/openflighthpc-archive-key.asc
+
+        - Install the OpenFlight repository::
+
+            flight@gateway1:~$ sudo apt-add-repository "deb https://repo.openflighthpc.org/openflight/ubuntu stable main"
+
+        - Update the apt cache::
+
+            flight@gateway1:~$ sudo apt-get update
 
 Now the OpenFlight repositories are installed. There are 3 repositories available - production (enabled by default), dev (providing development releases of tools) and vault (access to old, unsupported versions and retired tools).
 
@@ -86,11 +96,16 @@ The quickest and simplest way to get up and running with the user suite is to si
 
     .. group-tab:: Ubuntu 18.04
 
-        Coming Soon - But the packages can be installed via Installation Method 2!
+        - Install the user suite deb::
+
+            flight@gateway1:~$ sudo apt-get install flight-user-suite
 
     .. group-tab:: Ubuntu 20.04
 
-        Coming Soon...
+        - Install the user suite deb::
+
+            flight@gateway1:~$ sudo apt-get install flight-user-suite
+
 
 .. note:: After installation, either reboot your system or logout and back in again to expose the ``flight`` command to the shell
 
@@ -157,7 +172,22 @@ Each tool in the user suite is also available through the repositories and can b
 
     .. group-tab:: Ubuntu 20.04
 
-        Coming Soon...
+        - Install Flight Runway deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-runway
+
+        - Install Flight Env deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-env
+
+        - Install Flight Desktop deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-desktop
+
+        - Install Flight Starter deb::
+
+            flight@gatewat1:~$ sudo apt-get install flight-starter
+
 
 .. note:: After installation, either reboot your system or logout and back in again to expose the ``flight`` command to the shell
 
