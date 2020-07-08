@@ -34,6 +34,8 @@ Adding the OpenFlight Package Repositories
 
             [flight@gateway1 ~]$ sudo yum makecache
 
+        .. note:: Some tools require packages available in the EPEL repository, this can be installed with ``yum install epel-release``
+
     .. group-tab:: CentOS 8
 
         - Install the OpenFlight release RPM::
@@ -43,6 +45,8 @@ Adding the OpenFlight Package Repositories
         - Rebuild the yum cache::
 
             [flight@gateway1 ~]$ sudo dnf makecache
+
+        .. note:: Some tools require packages available in the EPEL repository, this can be installed with ``yum install epel-release``. Additionally the PowerTools repository is needed, this can be enabled with ``yum config-manager --set-enabled PowerTools``
 
     .. group-tab:: Ubuntu 18.04
 
