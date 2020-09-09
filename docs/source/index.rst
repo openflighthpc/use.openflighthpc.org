@@ -43,6 +43,8 @@ Table of Contents
    :name: working-with-user-suite
 
    working-with-user-suite/flight-system
+   working-with-user-suite/flight-howto
+   working-with-user-suite/flight-job
    working-with-user-suite/flight-environment
    working-with-user-suite/flight-desktop
 
