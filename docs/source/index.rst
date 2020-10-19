@@ -32,7 +32,7 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
-   :caption: Installing User Suite
+   :caption: Getting Started
    :name: installing-user-suite
 
    installing-user-suite/install
