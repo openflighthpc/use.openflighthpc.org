@@ -36,6 +36,7 @@ Table of Contents
    :name: installing-user-suite
 
    installing-user-suite/install
+   installing-web-suite/install
 
 .. toctree::
    :maxdepth: 1
