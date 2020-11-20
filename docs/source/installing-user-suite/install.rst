@@ -1,4 +1,7 @@
-.. _install:
+.. _install-user:
+
+Flight User Suite
+=================
 
 What is Flight User Suite?
 --------------------------
