@@ -51,6 +51,12 @@ Table of Contents
 
 .. toctree::
    :maxdepth: 1
+   :caption: Working With Web Suite
+
+   working-with-web-suite/flight-console
+
+.. toctree::
+   :maxdepth: 1
    :caption: Package Ecosystems
    :name: package-ecosystem
 
