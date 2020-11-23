@@ -54,6 +54,7 @@ Table of Contents
    :caption: Working With Web Suite
 
    working-with-web-suite/flight-console
+   working-with-web-suite/flight-desktop
 
 .. toctree::
    :maxdepth: 1
