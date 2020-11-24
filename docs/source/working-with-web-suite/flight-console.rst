@@ -16,8 +16,8 @@ After selecting the console service, a page with the cluster name, description a
 
 On successful login, the terminal application will be ready to connect to the cluster.
 
-Connecting Terminal
--------------------
+Connecting to the Terminal
+--------------------------
 
 To launch a web terminal for the cluster, simply click the Connect button.
 
