@@ -91,6 +91,7 @@ System Prerequisites
 ^^^^^^^^^^^^^^^^^^^^
 
 In order to authenticate the user in the web interface, the following must be true:
+
 - User has a password (can be set with the ``passwd`` command or through other user management software that is setup on the system)
 - Ports 80 & 443 on the gateway must be accessible (allowed through both the system firewall and cloud security group)
 - SSH password authentication must be enabled (can be set in ``/etc/ssh/sshd_config`` in CentOS or through other access management software that is setup on the system)
