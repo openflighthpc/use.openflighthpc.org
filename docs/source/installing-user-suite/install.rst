@@ -22,6 +22,8 @@ Installing Flight User Suite
 
 The OpenFlight project packages tools as both RPMs and debs that are hosted in package repositories which can be quickly installed with a couple of commands. 
 
+.. _add_package_repos:
+
 Adding the OpenFlight Package Repositories
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

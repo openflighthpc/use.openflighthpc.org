@@ -21,7 +21,7 @@ Installing Flight Web Suite
 
 The OpenFlight project packages tools as both RPMs and debs that are hosted in package repositories which can be quickly installed with a couple of commands. 
 
-Before proceeding, ensure that :ref:`the Flight User Suite is installed <install-user>`.
+Before proceeding, ensure that :ref:`the Flight User Suite is installed <add_package_repos>`.
 
 
 Installation Method 1: Quick
