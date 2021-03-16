@@ -46,7 +46,7 @@ An example workflow using perl is demonstrated below.
 
 - View available versions::
 
-    <gridware> [flight@gateway1 ~]$ gridware search
+    <gridware> [flight@gateway1 ~]$ gridware search perl
     2 repositories need to update ...
     Updating repository: main
               Update ... OK (At: 55916fd)
