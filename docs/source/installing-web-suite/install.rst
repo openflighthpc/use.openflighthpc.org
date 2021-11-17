@@ -39,7 +39,7 @@ The quickest and simplest way to get up and running with the user suite is to si
 
             [flight@gateway1 ~]$ sudo yum install flight-web-suite
 
-        - Set the domain name (for use with certificate generation, this can be either a hostname or IP. A publicly accessible value should be used if intending to use Lets Encrypt certificates)
+        - Set the domain name (for use with certificate generation, this can be either a hostname or IP. A publicly accessible value should be used if intending to use Lets Encrypt certificates)::
 
             [flight@gateway1 ~]$ flight web-suite set-domain gateway1.scooby.example.com
 
@@ -47,7 +47,7 @@ The quickest and simplest way to get up and running with the user suite is to si
 
             [flight@gateway1 ~]$ sudo yum install python-websockify xorg-x11-apps netpbm-progs
 
-        - Restart the web-suite to apply changes 
+        - Restart the web-suite to apply changes::
 
             [flight@gateway1 ~]$ flight web-suite restart
 
