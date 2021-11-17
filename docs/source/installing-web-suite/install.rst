@@ -15,6 +15,8 @@ Flight Web Suite is made up of the following tools:
 - Service: Flight Service provides management of the various web applications and services
 - Console WebApp/API: The API & web application for accessing terminals via a browser
 - Desktop WebApp/API: The API & web application for creating, managing & using desktops via a browser
+- File Manager WebApp/API: The API & web application for managing user files via a browser
+- Job Script WebApp/API: The API & web application for templating, creating, submitting & managing job scripts via a browser
 
 Installing Flight Web Suite
 ----------------------------
@@ -33,13 +35,21 @@ The quickest and simplest way to get up and running with the user suite is to si
 
     .. group-tab:: CentOS 7
 
-        - Install the web suite RPM::
+        - Install the web suite::
 
             [flight@gateway1 ~]$ sudo yum install flight-web-suite
+
+        - Set the domain name (for use with certificate generation, this can be either a hostname or IP. A publicly accessible value should be used if intending to use Lets Encrypt certificates)
+
+            [flight@gateway1 ~]$ flight web-suite set-domain gateway1.scooby.example.com
 
         - Install extra packages (note: the EPEL repository is required for the websockify package)::
 
             [flight@gateway1 ~]$ sudo yum install python-websockify xorg-x11-apps netpbm-progs
+
+        - Restart the web-suite to apply changes 
+
+            [flight@gateway1 ~]$ flight web-suite restart
 
     .. group-tab:: CentOS 8
 
@@ -106,13 +116,15 @@ Self-Signed
 
 A self-signed certificate, whilst not usually trusted by browsers, does still provide extra security to the web server over HTTP communication.
 
+A self-signed certificate is automatically created when installing the packages from the repo.
+
 To generate and install the self-signed certificates, simply::
 
-    [flight@gateway1(scooby) ~]$ flight www cert-gen --cert-type self-signed --domain $(hostname -d)
+    [flight@gateway1(scooby) ~]$ flight www cert-gen --cert-type self-signed --domain $(hostname -f)
 
-After this has run, the HTTPS server can be enabled with::
+After this has run, changes are applied on a service restart::
 
-    [flight@gateway1(scooby) ~]$ flight www enable-https
+    [flight@gateway1(scooby) ~]$ flight web-suite restart 
 
 Lets Encrypt
 ~~~~~~~~~~~~
@@ -121,11 +133,11 @@ To generate and install a Lets Encrypt certificate, run the following (replacing
 
     [flight@gateway1(scooby) ~]$ flight www cert-gen --cert-type lets-encrypt --domain gateway1.scooby.example.com --email user@example.com
 
-.. note:: A DNS record for the chosen domain name, pointing to the IP of the gateway, will need to be setup with your DNS provider in order for certificate generation to work
+.. note:: Ensure that the domain/IP is publicly accessible in order for certificate generation to work
 
-After this has run, the HTTPS server can be enabled with::
+After this has run, changes are applied on a service restart::
 
-    [flight@gateway1(scooby) ~]$ flight www enable-https
+    [flight@gateway1(scooby) ~]$ flight web-suite restart 
 
 
 External Certificate
@@ -138,33 +150,5 @@ Externally generated certificates can be used by placing them in ``/opt/flight/e
 
 After placing the certificates in place, the HTTPS server can be enabled with::
 
-    [flight@gateway1(scooby) ~]$ flight www enable-https
-
-Console Configuration
-^^^^^^^^^^^^^^^^^^^^^
-
-Before the terminal web service can be used it will need to be configured, an interactive configuration prompt is available with::
-
-    [flight@gateway1(scooby) ~]$ flight service configure console-webapp
-
-The information requested in the configuration prompt are:
-
-- Cluster Name: The name of the cluster, to be displayed in the login page for the web front-end
-- Cluster Description: An optional description that is shown below the cluster name in the web front-end
-- Cluster Logo: A URL to an image to be used in the web front-end 
-- Hostname or IP: The hostname or IP address of the gateway that is world-reachable for web access
-
-Desktop Configuration
-^^^^^^^^^^^^^^^^^^^^^
-
-Before the desktop web service can be used it will need to be configured, an interactive configuration prompt is available with::
-
-    [flight@gateway1(scooby) ~]$ flight service configure desktop-webapp
-
-The information requested in the configuration prompt are:
-
-- Cluster Name: The name of the cluster, to be displayed in the login page for the web front-end
-- Cluster Description: An optional description that is shown below the cluster name in the web front-end
-- Cluster Logo: A URL to an image to be used in the web front-end 
-- Hostname or IP: The hostname or IP address of the gateway that is world-reachable for web access
+    [flight@gateway1(scooby) ~]$ flight web-suite restart
 
